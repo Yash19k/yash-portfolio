@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { CursorProvider } from './context/CursorContext';
 import { CustomCursor } from './components/layout/CustomCursor';
 import { ScrollProgress } from './components/layout/ScrollProgress';
@@ -108,6 +109,7 @@ export const App: React.FC = () => {
           <Footer />
         </div>
         <Analytics />
+        <SpeedInsights />
       </NewCursorProvider>
     </CursorProvider>
   );
