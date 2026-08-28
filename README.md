@@ -1,7 +1,10 @@
 # Yash Kshatriya — Developer Portfolio
 
+> 🌐 **Live Website**: [yashkshatriya.me](https://yashkshatriya.me/)
+
 An interactive, high-performance developer portfolio showcasing full-stack web engineering, AI/ML projects, and creative WebGL shader experiences.
 
+[![Live Demo](https://img.shields.io/badge/Live_Site-yashkshatriya.me-8B5CF6?style=flat-square&logo=googlechrome&logoColor=white)](https://yashkshatriya.me/)
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.1.0-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
