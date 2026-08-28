@@ -357,7 +357,7 @@ The application can be deployed to any modern static hosting platform (e.g., **V
 
 ## Connect & Socials
 
-- **Portfolio**: [yashkshatriya.vercel.app](https://yashkshatriya.vercel.app/)
+- **Portfolio**: [yashkshatriya.me](https://yashkshatriya.me/)
 - **GitHub**: [@Yash19k](https://github.com/Yash19k)
 - **LinkedIn**: [yashkshatriya19](https://www.linkedin.com/in/yashkshatriya19/)
 - **LeetCode**: [Yash19k](https://leetcode.com/u/Yash19k/)
