@@ -1,77 +1,169 @@
 # Yash Kshatriya — Developer Portfolio
 
-> 🌐 **Live Website**: [yashkshatriya.me](https://yashkshatriya.me/)
+<div align="center">
 
-An interactive, high-performance developer portfolio showcasing full-stack web engineering, AI/ML projects, and creative WebGL shader experiences.
+# ⚡ Yash Kshatriya
+### AI / ML & Full-Stack Developer • Computer Science Engineering
 
-[![Live Demo](https://img.shields.io/badge/Live_Site-yashkshatriya.me-8B5CF6?style=flat-square&logo=googlechrome&logoColor=white)](https://yashkshatriya.me/)
+An interactive, high-performance developer portfolio featuring custom WebGL shaders, fluid physics simulations, interactive GSAP typography, and deep-dive engineering showcase.
+
+[![Live Demo](https://img.shields.io/badge/Live_Site-yashkshatriya.me-8B5CF6?style=for-the-badge&logo=googlechrome&logoColor=white)](https://yashkshatriya.me/)
+[![GitHub](https://img.shields.io/badge/GitHub-Yash19k-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Yash19k)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-yashkshatriya19-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yashkshatriya19/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-Yash19k-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/Yash19k/)
+
+---
+
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.1.0-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Three.js](https://img.shields.io/badge/Three.js-0.170.0-000000?style=flat-square&logo=threedotjs&logoColor=white)](https://threejs.org/)
 [![GSAP](https://img.shields.io/badge/GSAP-3.15.0-88CE02?style=flat-square&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+
+</div>
 
 ---
 
 ## 📑 Table of Contents
 
 - [Overview](#overview)
-- [Key Features](#key-features)
+- [Key Features & Highlights](#key-features--highlights)
+- [Architecture & Data Flow](#architecture--data-flow)
+- [Project Directory Structure](#project-directory-structure)
 - [Tech Stack](#tech-stack)
-- [Architecture & How It Works](#architecture--how-it-works)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Installation & Setup](#installation--setup)
-- [Environment Variables](#environment-variables)
-- [Running Locally](#running-locally)
-- [Build & Production Preview](#build--production-preview)
-- [Project Showcase](#project-showcase)
-- [API & External Integrations](#api--external-integrations)
+- [Featured Engineering Projects](#featured-engineering-projects)
+- [Engineering & Design Principles](#engineering--design-principles)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+  - [Development & Production Scripts](#development--production-scripts)
 - [Deployment](#deployment)
-- [Testing & Quality Verification](#testing--quality-verification)
-- [Troubleshooting & Known Limitations](#troubleshooting--known-limitations)
 - [Connect & Socials](#connect--socials)
-- [Contributing](#contributing)
 - [License](#license)
 
 ---
 
 ## Overview
 
-This repository contains the source code for **Yash Kshatriya's** personal developer portfolio. It is designed to demonstrate full-stack software development competencies, machine learning projects, and modern frontend visual design using WebGL shaders, particle simulations, and fluid micro-interactions.
+Welcome to the source repository for **Yash Kshatriya's Personal Portfolio**. 
+
+Built from the ground up with **React 18**, **TypeScript**, and **Vite**, this application serves as both a portfolio and an interactive showcase of creative frontend engineering, WebGL shader computations, responsive UI architecture, and full-stack software development.
+
+> [!NOTE]
+> **Live Website**: Experience the live interactive build at [yashkshatriya.me](https://yashkshatriya.me/).
 
 ---
 
-## Key Features
+## Key Features & Highlights
 
-- **Multi-Layered WebGL & Shader Hero Section**:
-  - **Molten Metal Fluid Shader**: Custom GLSL fragment shader rendering interactive metallic flows with color gradients and mouse distortion.
-  - **Generative Ribbons**: Flowing ribbon physics simulation rendered using OGL / WebGL.
-  - **Image Particle Atomizer**: Interactive 3D particle cloud that reconstructs portrait imagery and responds to cursor repulsion in real time.
-- **Dynamic Hero Typography**:
-  - Live status indicator badge (`SYSTEM ACTIVE // OPEN TO WORK`).
-  - Animated role rotation with character reveal styling.
-  - Direct call-to-action buttons for work exploration, contact, and resume access.
-- **Interactive Word-by-Word Scroll Reveal**:
-  - GSAP `ScrollTrigger`-powered typography in the **About** section that gradually illuminates words as the user scrolls.
-  - Scoped inverted cursor effect highlighting underlying text.
-- **Interactive Career & Education Timeline**:
-  - Step-by-step visual timeline tracking academic milestones (Class 12, B.Tech CSE at LJ University) and software development progression (Full-Stack, AI/ML, real-world applications, and internship search).
-- **Comprehensive Project Showcase (HUD Style)**:
-  - Interactive grid displaying featured engineering and AI projects.
-  - Expandable modal drawers with project overviews, feature breakdowns, architecture notes, and personal contribution highlights.
-  - Direct links to GitHub repositories and live web deployments where available.
+### 🎨 Visual & Interactive Experiences
+- **Multi-Layered WebGL & Shader Hero**:
+  - **Molten Metal Fluid Shader**: Custom GLSL fragment shader rendering interactive metallic flows with color gradients and real-time mouse distortion.
+  - **Generative Ribbons**: Flowing ribbon physics simulation rendered using OGL and WebGL.
+  - **Image Particle Atomizer**: 3D particle cloud that reconstructs portrait imagery and dynamically responds to cursor repulsion.
+- **GSAP Scroll-Triggered Kinetic Typography**:
+  - Word-by-word illuminating text reveal in the **About** section synchronized with scroll depth via GSAP `ScrollTrigger`.
+  - Scoped inverted cursor effect providing backdrop contrast and magnification.
+- **Context-Aware Dynamic Cursor**:
+  - Adaptive SVG pointer morphing smoothly between states (`button`, `link`, `copy`, `hover`).
+  - Interactive canvas click spark bursts (`ClickSpark`) and particle confetti explosions (`canvas-confetti`) on email copy.
+  - Automatic fallback to native touch gestures on mobile/coarse pointer devices.
+
+### 💼 Career & Technical Showcase
+- **Interactive Career & Academic Timeline**:
+  - Structured timeline tracking milestones: High School, B.Tech Computer Science Engineering at LJ University, full-stack development, and AI/ML specialization.
+- **HUD-Style Project Command Center**:
+  - Interactive project cards with instant preview modals, architectural breakdowns, tech specifications, and direct GitHub/live deployment links.
 - **Categorized Tech Stack Matrix**:
-  - Interactive tabbed browsing across **Languages**, **Frameworks**, **Libraries**, **Databases & Data**, and **Developer Tools**.
-  - Devicon SVG integration with hover animations and outbound documentation links.
-- **Fluid Cursor & Click Dynamics**:
-  - Context-aware custom SVG pointer morphing between button, hover, link, and copy states (automatically disabled on mobile/touch screens).
-  - Canvas click spark burst animation (`ClickSpark`) on user clicks.
-  - Celebratory confetti particle explosion (`canvas-confetti`) when copying the contact email address.
-- **Accessible & Responsive**:
-  - Fully responsive layout optimized for mobile, tablet, laptop, and ultra-wide screens.
-  - Top scroll progress indicator and scroll-spy navigation with smooth section jumping.
+  - Tabbed matrix across **Languages**, **AI / ML**, **Web & 3D**, **Data & GIS**, and **Tools & DevOps** with Devicon SVG integration and official documentation links.
+
+---
+
+## Architecture & Data Flow
+
+```
+┌──────────────────────────────────────────────────────────────────────────┐
+│                                 App.tsx                                  │
+├────────────────────────────────────┬─────────────────────────────────────┤
+│ Context & Global Overlays          │ Main Section Flow                   │
+│ ├─ CursorProvider                  │ ├─ ScrollProgress (Top Navbar)      │
+│ ├─ NewCursorProvider               │ ├─ CombinedHeroNew                  │
+│ ├─ ClickSpark Overlay              │ │  ├─ MoltenMetal (GLSL Shader)     │
+│ └─ Custom / Inverted Cursors       │ │  ├─ Ribbons (OGL Physics)         │
+│                                    │ │  ├─ Image Particles (Canvas)      │
+│                                    │ │  └─ ReferenceHeroText (CTA / Badges│
+│                                    │ ├─ About (GSAP ScrollTrigger)       │
+│                                    │ ├─ CareerTimeline (Milestone Cards) │
+│                                    │ ├─ MyWork (Project Modal Drawers)   │
+│                                    │ ├─ TechStack (Tabbed Filter Matrix) │
+│                                    │ ├─ Contact (Confetti & Copy Action) │
+│                                    │ └─ Footer                           │
+└────────────────────────────────────┴─────────────────────────────────────┘
+```
+
+### Core Architecture Highlights
+
+1. **Single Source of Truth (`src/config/site.ts`)**:
+   - All profile details, coordinates, copy text, social URLs, and fallback data reside in a centralized configuration module.
+2. **Dynamic Viewport Scroll Spy**:
+   - `useScrollSpy` hook monitors active intersecting sections to dynamically highlight header navigation items in real time.
+3. **Decoupled Project Metadata (`src/portfolio2/data.ts`)**:
+   - Clear separation between visual grid presentations and detailed modal inspection drawers.
+
+---
+
+## Project Directory Structure
+
+```text
+yash-portfolio/
+├── public/                       # Static public assets
+│   ├── images/                   # Project previews, portraits, and thumbnails
+│   ├── video/                    # Project demonstration videos
+│   ├── favicon.svg               # Site branding favicon
+│   └── Yash_Kshatriya_Resume.pdf # Downloadable resume document
+├── src/
+│   ├── career-timeline/          # Education & career milestone timeline
+│   │   ├── careerData.ts         # Milestone data entries
+│   │   ├── CareerTimeline.css    # Timeline component styles
+│   │   └── CareerTimeline.tsx    # Timeline rendering logic
+│   ├── components/
+│   │   ├── about/                # About section with GSAP word-reveal
+│   │   ├── contact/              # Contact card with clipboard copy & confetti
+│   │   ├── hero/                 # Hero visual stack (shaders, ribbons, particles)
+│   │   │   ├── CombinedHeroNew.tsx
+│   │   │   ├── ImageAtomizer.ts
+│   │   │   ├── MoltenMetal.tsx
+│   │   │   ├── ReferenceHeroText.tsx
+│   │   │   └── ReferenceImageParticles.tsx
+│   │   ├── layout/               # Navbar, Footer, ScrollProgress, CustomCursor
+│   │   └── ui/                   # Reusable UI widgets (ClickSpark, Ribbons, Buttons)
+│   ├── config/                   # Site-wide constants and config (site.ts)
+│   ├── context/                  # React Context providers (CursorContext)
+│   ├── hooks/                    # Custom hooks (useScrollSpy)
+│   ├── portfolio2/               # Project showcase and modal drawer
+│   │   ├── data.ts               # Project metadata and detailed drawer info
+│   │   └── MyWork/               # Project cards & modal inspection components
+│   ├── social-buttons/           # Social profile pill links
+│   ├── tech-stack/               # Categorized tech stack grid
+│   │   ├── data/technologies.ts  # Tech items by category with icons and URLs
+│   │   └── TechStack.tsx         # Tabbed filter matrix component
+│   ├── types/                    # TypeScript interfaces and type definitions
+│   ├── utils/                    # Utility helper functions
+│   ├── App.tsx                   # Root application container & section layout
+│   ├── index.css                 # Global CSS and Tailwind CSS directives
+│   ├── main.tsx                  # React DOM root mounting
+│   └── vite-env.d.ts             # Vite client environment definitions
+├── .env.example                  # Environment variables template
+├── index.html                    # HTML5 template with SEO & Open Graph meta tags
+├── package.json                  # Dependencies and build scripts
+├── postcss.config.js             # PostCSS plugins
+├── tailwind.config.js            # Tailwind custom tokens, animations & colors
+├── tsconfig.json                 # TypeScript compiler configuration
+└── vite.config.ts                # Vite bundler configuration & chunk splitting
+```
 
 ---
 
@@ -80,131 +172,132 @@ This repository contains the source code for **Yash Kshatriya's** personal devel
 ### Core & Framework
 | Technology | Version | Purpose |
 | :--- | :--- | :--- |
-| **React** | `^18.3.1` | Declarative UI component architecture |
-| **TypeScript** | `^5.7.3` | Static type safety and developer ergonomics |
-| **Vite** | `^6.1.0` | Next-generation frontend tooling and fast HMR |
+| **React** | `^18.3.1` | Declarative component UI library |
+| **TypeScript** | `^5.7.3` | Type safety and enhanced developer ergonomics |
+| **Vite** | `^6.1.0` | High-speed frontend build tool and HMR dev server |
 
 ### Graphics, 3D & Shaders
 | Technology | Version | Purpose |
 | :--- | :--- | :--- |
 | **Three.js** | `^0.170.0` | WebGL 3D scene rendering and particle point clouds |
 | **OGL** | `^1.0.11` | Minimal WebGL library for shader effects and ribbons |
-| **HTML5 Canvas** | Native | High-performance 2D/3D particle rendering |
+| **GLSL (Custom)** | Native | Fragment shader computing molten fluid distortion |
+| **HTML5 Canvas** | Native | 2D/3D particle atomizer rendering |
 
 ### Animations & Micro-Interactions
 | Technology | Version | Purpose |
 | :--- | :--- | :--- |
-| **Framer Motion** | `^11.18.2` | Component transitions, layout animations, and entry effects |
+| **Framer Motion** | `^11.18.2` | Fluid transitions, modal spring physics, and layout animations |
 | **GSAP (GreenSock)** | `^3.15.0` | ScrollTrigger scroll-scrubbed text reveal animations |
-| **Canvas Confetti** | `^1.9.4` | Interactive particle explosions on user actions |
-| **@tsparticles** | `^4.3.2` | Lightweight particle engine and slim presets |
+| **Canvas Confetti** | `^1.9.4` | Particle confetti explosion effects |
+| **@tsparticles** | `^4.3.2` | Particle engine presets |
 
 ### Styling & UI
 | Technology | Version | Purpose |
 | :--- | :--- | :--- |
-| **Tailwind CSS** | `^3.4.17` | Utility-first styling with dark mode obsidian color tokens |
-| **Lucide React** | `^0.475.0` | Modern, clean iconography |
-| **React Icons** | `^5.7.0` | Brand and developer tool icons |
-| **clsx / tailwind-merge**| `^2.1.1` / `^2.6.0` | Utility class composition |
+| **Tailwind CSS** | `^3.4.17` | Utility-first styling with dark obsidian color palette |
+| **Lucide React** | `^0.475.0` | Clean, modern vector iconography |
+| **React Icons** | `^5.7.0` | Tech stack and brand icons |
+| **clsx / tailwind-merge**| `^2.1.1` / `^2.6.0` | Dynamic class composition |
 
 ---
 
-## Architecture & How It Works
+## Featured Engineering Projects
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                           App.tsx                            │
-├──────────────────────────────┬───────────────────────────────┤
-│ Context & UI Overlays        │ Main Section Flow             │
-│ ├─ CursorProvider            │ ├─ ScrollProgress (Top Bar)   │
-│ ├─ NewCursorProvider         │ ├─ CombinedHeroNew            │
-│ ├─ ClickSpark Layer          │ │  ├─ MoltenMetal (GLSL)      │
-│ └─ Custom / Inverted Cursors │ │  ├─ Ribbons (OGL)           │
-│                              │ │  ├─ Image Particles (Canvas)│
-│                              │ │  └─ ReferenceHeroText       │
-│                              │ ├─ About (GSAP ScrollTrigger) │
-│                              │ ├─ CareerTimeline             │
-│                              │ ├─ MyWork (Project Modals)    │
-│                              │ ├─ TechStack (Tabs & Links)   │
-│                              │ ├─ Contact (Confetti & Copy)  │
-│                              │ └─ Footer                     │
-└──────────────────────────────┴───────────────────────────────┘
-```
+<div align="center">
 
-1. **State & Context Management**:
-   - `CursorContext` controls cursor variants across hover targets (e.g. `button`, `link`, `copy`, `hover`).
-   - `useScrollSpy` dynamically monitors the active viewport section (`#hero`, `#about`, `#timeline`, `#work`, `#stack`, `#contact`) to highlight navbar items.
-2. **Configuration & Data Isolation**:
-   - `src/config/site.ts` serves as the single source of truth for personal metadata, social links, and default environment fallbacks.
-   - `src/portfolio2/data.ts` contains project definitions and detailed modal content.
-   - `src/career-timeline/careerData.ts` defines timeline steps and milestones.
-   - `src/tech-stack/data/technologies.ts` stores categorised technologies, icons, and official documentation links.
+### 1. OBRIX — Geospatial Location Intelligence Platform
+**AI-Powered Location Intelligence & Site Readiness Analysis**
+
+</div>
+
+- **Overview**: An intelligent site-readiness platform that analyzes geographic, accessibility, infrastructure, and surrounding-area data to evaluate candidate development locations.
+- **Tech Stack**: `React` • `Django REST Framework` • `PostgreSQL` • `PostGIS` • `Leaflet` • `OpenStreetMap` • `Python`
+- **Key Features**:
+  - Automated site suitability scoring with multi-criteria spatial weights.
+  - Dynamic radius catchment analysis & amenity proximity calculations.
+  - Interactive GIS vector and raster layer rendering.
+- **Links**: [Live Demo](https://obrix-frontend.onrender.com/) • [GitHub Repository](https://github.com/Yash19k/Obrix-Location-Intelligence-Platform)
 
 ---
 
-## Project Structure
+<div align="center">
 
-```text
-yash-portfolio/
-├── public/                      # Static web assets
-│   ├── images/                  # Project screenshots, portraits, and icons
-│   ├── video/                   # Project preview recordings
-│   ├── favicon.svg              # Site favicon
-│   └── YASH_KSHATRIYA_RESUME.pdf# Static resume document
-├── src/
-│   ├── career-timeline/         # Interactive career & education timeline
-│   │   ├── careerData.ts        # Timeline data entries
-│   │   ├── CareerTimeline.css   # Timeline custom styling
-│   │   └── CareerTimeline.tsx   # Timeline component logic
-│   ├── components/
-│   │   ├── about/               # About section with GSAP word-reveal
-│   │   ├── contact/             # Contact card with clipboard copy & confetti
-│   │   ├── hero/                # Hero visual stack (shaders, ribbons, particles)
-│   │   │   ├── CombinedHeroNew.tsx
-│   │   │   ├── ImageAtomizer.ts
-│   │   │   ├── MoltenMetal.tsx
-│   │   │   ├── ReferenceHeroText.tsx
-│   │   │   └── ReferenceImageParticles.tsx
-│   │   ├── layout/              # Navbar, Footer, ScrollProgress, CustomCursor
-│   │   └── ui/                  # Reusable UI widgets (ClickSpark, Ribbons, InvertedCursor)
-│   ├── config/                  # Site-wide constants and config (site.ts)
-│   ├── context/                 # React Context providers (CursorContext)
-│   ├── hooks/                   # Custom React hooks (useScrollSpy)
-│   ├── portfolio2/              # Project showcase and modal drawer
-│   │   ├── data.ts              # Projects metadata and modal details
-│   │   └── MyWork/              # Work grid & modal inspection components
-│   ├── social-buttons/          # Social profile pill links
-│   ├── tech-stack/              # Categorized tech stack grid
-│   │   ├── data/technologies.ts # Tech items by category
-│   │   └── TechStack.tsx
-│   ├── types/                   # TypeScript interfaces and type definitions
-│   ├── utils/                   # Helper utility functions
-│   ├── App.tsx                  # Root application layout
-│   ├── index.css                # Global stylesheet and Tailwind directives
-│   ├── main.tsx                 # React DOM root entrypoint
-│   └── vite-env.d.ts            # Vite client environment type definitions
-├── .env.example                 # Environment variables template
-├── index.html                   # HTML entry with SEO & Open Graph meta tags
-├── package.json                 # Project dependencies and npm scripts
-├── postcss.config.js            # PostCSS configuration
-├── tailwind.config.js           # Tailwind theme customization and color tokens
-├── tsconfig.json                # TypeScript compiler configuration
-└── vite.config.ts               # Vite build configuration and chunk splitting
-```
+### 2. TransitOps — Smart Transport Operations Platform
+**Real-Time Fleet Telemetry & Delay Forecasting**
+
+</div>
+
+- **Overview**: A smart transportation operations platform engineered for real-time fleet tracking, delay prediction models, congestion telemetry, and dynamic route optimization.
+- **Tech Stack**: `React` • `TypeScript` • `Python` • `FastAPI` • `WebSockets` • `PostgreSQL` • `Tailwind CSS` • `Scikit-learn`
+- **Key Features**:
+  - Sub-second vehicle telemetry simulation and broadcast over WebSockets.
+  - Predictive machine learning models to forecast junction delays.
+  - Real-time route monitoring and operational telemetry metrics.
+- **Links**: [GitHub Repository](https://github.com/Yash19k/TransitOps-Smart-Transport-Operations-Platform)
 
 ---
 
-## Prerequisites
+<div align="center">
 
-Before running the project locally, ensure you have the following installed on your machine:
+### 3. Academix — AI-Powered Learning Platform
+**Structured Education & AI-Assisted Study Workspace**
 
+</div>
+
+- **Overview**: An educational web application designed to provide students with structured learning modules, interactive quizzes, and AI chatbot assistance.
+- **Tech Stack**: `HTML5` • `CSS3` • `JavaScript` • `Bootstrap` • `AI Chatbot Integration`
+- **Key Features**:
+  - Interactive video learning modules and categorized study notes.
+  - Integrated quiz evaluation engine with instant feedback.
+  - Embedded AI assistant for answering student queries.
+- **Links**: [GitHub Repository](https://github.com/Yash19k/Academix)
+
+---
+
+<div align="center">
+
+### 4. LMS — Logistics Management System
+**Fleet Management, Role-Based Access & Distance Calculations**
+
+</div>
+
+- **Overview**: A Java-based enterprise logistics management application for managing fleets, users, logistics operations, and automated distance-based fare calculations.
+- **Tech Stack**: `Java` • `JDBC` • `MySQL` • `Google Maps API`
+- **Key Features**:
+  - Role-based access control (Admin vs. User permissions).
+  - Automated distance calculations and fare estimation using Google Maps API.
+  - Secure relational database integration with MySQL.
+- **Links**: [GitHub Repository](https://github.com/Yash19k/LMS)
+
+---
+
+## Engineering & Design Principles
+
+> [!TIP]
+> **Performance First**: WebGL and canvas animations are hardware-accelerated and paused or reduced when offscreen or on touch devices.
+
+1. **Hardware-Accelerated WebGL**:
+   - Shaders and canvas particle loops are optimized with frame throttling and efficient memory management to prevent memory leaks.
+2. **Mobile & Touch Compatibility**:
+   - Custom SVG cursor automatically disables on touchscreens (`isTouchDevice`) and coarse pointers to ensure seamless, native touch interaction.
+3. **SEO & Accessibility**:
+   - Semantic HTML5 structure with Open Graph metadata and responsive viewport configurations.
+4. **Type-Safe Development**:
+   - Strict TypeScript configurations ensuring type safety across props, data structures, and state hooks.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have the following installed on your development machine:
 - **Node.js**: `v18.x` or `v20.x+` ([Download Node.js](https://nodejs.org/))
-- **npm**: `v9.x` or later (bundled with Node.js), or **pnpm** / **yarn**
-- **Modern Web Browser**: Chrome, Firefox, Safari, or Edge with hardware acceleration enabled for WebGL.
+- **npm**: `v9.x` or later (or `pnpm` / `yarn`)
+- **Modern Web Browser**: Chrome, Firefox, Safari, or Edge with WebGL hardware acceleration enabled.
 
----
-
-## Installation & Setup
+### Installation
 
 1. **Clone the repository**:
    ```bash
@@ -212,171 +305,64 @@ Before running the project locally, ensure you have the following installed on y
    cd yash-portfolio
    ```
 
-2. **Install dependencies**:
+2. **Install project dependencies**:
    ```bash
    npm install
    ```
 
-3. **Configure environment variables** (optional):
+3. **Configure environment variables (Optional)**:
    ```bash
    cp .env.example .env
    ```
 
----
+### Environment Variables
 
-## Environment Variables
-
-All environment variables are optional. The application contains fallback values in `src/config/site.ts` to ensure immediate out-of-the-box functionality.
-
-Create a `.env` file in the project root to override any default values:
+All environment variables are optional. If not provided, fallback values in `src/config/site.ts` are automatically used:
 
 | Variable | Required | Default / Fallback | Description |
 | :--- | :---: | :--- | :--- |
-| `VITE_GITHUB_USERNAME` | No | `Yash19k` | GitHub username displayed in site links |
-| `VITE_GITHUB_URL` | No | `https://github.com/Yash19k` | Full URL to your GitHub profile |
-| `VITE_LINKEDIN_URL` | No | `https://www.linkedin.com/in/yashkshatriya19/` | Full URL to your LinkedIn profile |
-| `VITE_EMAIL` | No | `kshatriyayash19@gmail.com` | Email address for direct mailto and copy actions |
-| `VITE_RESUME_URL` | No | `/Yash_Kshatriya_Resume.pdf` | Web-accessible path or URL to resume PDF |
+| `VITE_GITHUB_USERNAME` | No | `Yash19k` | GitHub username displayed on site |
+| `VITE_GITHUB_URL` | No | `https://github.com/Yash19k` | Direct URL to GitHub profile |
+| `VITE_LINKEDIN_URL` | No | `https://www.linkedin.com/in/yashkshatriya19/` | Direct URL to LinkedIn profile |
+| `VITE_EMAIL` | No | `kshatriyayash19@gmail.com` | Primary contact email address |
+| `VITE_RESUME_URL` | No | `/Yash_Kshatriya_Resume.pdf` | Path/URL to the resume PDF |
 
----
+### Development & Production Scripts
 
-## Running Locally
-
-To start the Vite local development server with Hot Module Replacement (HMR):
-
-```bash
-npm run dev
-```
-
-Once started, open your browser and navigate to:
-```
-http://localhost:5173
-```
-
----
-
-## Build & Production Preview
-
-### 1. Type-Check and Build
-To compile TypeScript and produce an optimized production bundle in the `dist/` directory:
-
-```bash
-npm run build
-```
-
-### 2. Preview the Production Build Locally
-To test the built production bundle locally before deploying:
-
-```bash
-npm run preview
-```
-
-The preview server will launch (typically at `http://localhost:4173`).
-
----
-
-## Project Showcase
-
-The portfolio showcases 4 featured engineering and AI projects:
-
-1. **OBRIX (Location Intelligence Platform)**:
-   - **Domain**: AI-Powered Geospatial Location Intelligence & Site Readiness Analysis.
-   - **Stack**: React, Django REST Framework, PostgreSQL, PostGIS, Leaflet.
-   - **Highlights**: Automated site suitability scoring, dynamic radius catchment analysis, and interactive GIS vector/raster layers.
-   - **Live Demo**: [obrix-frontend.onrender.com](https://obrix-frontend.onrender.com/)
-   - **Repository**: [Yash19k/Obrix-Location-Intelligence-Platform](https://github.com/Yash19k/Obrix-Location-Intelligence-Platform)
-
-2. **Academix (AI-Powered Learning Platform)**:
-   - **Domain**: Structured Education & AI-Assisted Study Workspace.
-   - **Stack**: HTML5, CSS3, JavaScript, Bootstrap, AI Chatbot integration.
-   - **Highlights**: Video learning modules, structured notes, quiz engine, and AI chatbot assistance.
-   - **Repository**: [Yash19k/Academix](https://github.com/Yash19k/Academix)
-
-3. **Logistics Management System (LMS)**:
-   - **Domain**: Logistics Management, Fleet Tracking & Distance Calculations.
-   - **Stack**: Java, JDBC, MySQL, Google Maps API.
-   - **Highlights**: Admin/User role separation, automated distance-based fare calculations, and relational database persistence.
-   - **Repository**: [Yash19k/LMS](https://github.com/Yash19k/LMS)
-
-4. **TransitOps (Smart Transport Operations Platform)**:
-   - **Domain**: Real-Time Fleet Telemetry & Delay Forecasting.
-   - **Stack**: React, TypeScript, Python, FastAPI, WebSockets, PostgreSQL, Tailwind CSS, Scikit-learn.
-   - **Highlights**: Low-latency vehicle telemetry simulation, route monitoring, and ML-assisted junction delay predictions.
-   - **Repository**: [Yash19k/TransitOps-Smart-Transport-Operations-Platform](https://github.com/Yash19k/TransitOps-Smart-Transport-Operations-Platform)
-
----
-
-## API & External Integrations
-
-This repository is built as a **Client-Side Single Page Application (SPA)** and does not bundle a custom backend API server directly. It interacts with:
-
-- **Browser Web APIs**: WebGL / Canvas context, Clipboard API (`navigator.clipboard`), and Viewport Match Media queries.
-- **External CDN Assets**: Devicon & Simple Icons SVG icons delivered via jsDelivr and unpkg CDNs.
-- **External Services**: Direct hyperlinks and live previews connecting to GitHub repositories and cloud-hosted application deployments.
+| Command | Action |
+| :--- | :--- |
+| `npm run dev` | Starts Vite local development server with Hot Module Replacement (`http://localhost:5173`) |
+| `npm run build` | Runs TypeScript type checking (`tsc`) and compiles optimized production assets to `dist/` |
+| `npm run preview` | Spins up a local server to preview the production build (`http://localhost:4173`) |
 
 ---
 
 ## Deployment
 
-The application can be deployed to any modern static hosting platform (e.g., **Vercel**, **Netlify**, **Cloudflare Pages**, or **GitHub Pages**).
+The application compiles to static HTML/CSS/JS assets and can be deployed to any modern edge hosting platform.
 
 ### Deploying to Vercel (Recommended)
 
 1. Push your repository to GitHub.
 2. Sign in to [Vercel](https://vercel.com/) and click **Add New Project**.
 3. Import the `yash-portfolio` repository.
-4. Vercel automatically detects the Vite framework preset:
-   - **Build Command**: `npm run build` (or `tsc && vite build`)
+4. Vercel automatically detects the Vite build configuration:
+   - **Build Command**: `npm run build`
    - **Output Directory**: `dist`
-   - **Install Command**: `npm install`
-5. (Optional) Add your environment variables in the Vercel Project Settings.
-6. Click **Deploy**.
-
----
-
-## Testing & Quality Verification
-
-- **Static Type Checking & Compilation**:
-  ```bash
-  npm run build
-  ```
-  Runs `tsc` (TypeScript Compiler) across all project files to enforce strict type checking, followed by `vite build` to verify asset bundling and chunk splitting.
-
----
-
-## Troubleshooting & Known Limitations
-
-- **WebGL Performance / Hardware Acceleration**:
-  - The hero section uses custom WebGL shaders and particle simulation. If you experience lower frame rates, ensure **Hardware Acceleration** is enabled in your browser settings (`chrome://settings/system` or equivalent).
-- **Custom Cursor on Mobile Devices**:
-  - The custom SVG cursor is automatically hidden on touch-enabled devices (`isTouchDevice`) and coarse pointer screens to ensure native, frictionless mobile touch behavior.
-- **Resume Download / Casing**:
-  - The resume PDF is served statically from the `public/` directory. If customizing the filename, update `VITE_RESUME_URL` in your `.env` or `src/config/site.ts`.
+5. Click **Deploy**.
 
 ---
 
 ## Connect & Socials
 
-- **Portfolio**: [yashkshatriya.me](https://yashkshatriya.me/)
-- **GitHub**: [@Yash19k](https://github.com/Yash19k)
-- **LinkedIn**: [yashkshatriya19](https://www.linkedin.com/in/yashkshatriya19/)
-- **LeetCode**: [Yash19k](https://leetcode.com/u/Yash19k/)
-- **Email**: [kshatriyayash19@gmail.com](mailto:kshatriyayash19@gmail.com)
-
----
-
-## Contributing
-
-Contributions, feedback, and suggestions are welcome!
-
-1. Fork the repository.
-2. Create a descriptive feature branch: `git checkout -b feature/amazing-feature`.
-3. Commit your changes: `git commit -m "Add amazing feature"`.
-4. Push to the branch: `git push origin feature/amazing-feature`.
-5. Open a Pull Request.
+- 🌐 **Portfolio**: [yashkshatriya.me](https://yashkshatriya.me/)
+- 🐙 **GitHub**: [@Yash19k](https://github.com/Yash19k)
+- 💼 **LinkedIn**: [yashkshatriya19](https://www.linkedin.com/in/yashkshatriya19/)
+- 💻 **LeetCode**: [Yash19k](https://leetcode.com/u/Yash19k/)
+- 📧 **Email**: [kshatriyayash19@gmail.com](mailto:kshatriyayash19@gmail.com)
 
 ---
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
