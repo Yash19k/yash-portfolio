@@ -141,6 +141,36 @@ export const techStackCategories: TechCategory[] = [
     ],
   },
   {
+    title: "CLOUD & DEVOPS",
+    items: [
+      {
+        name: "AWS",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
+        url: "https://aws.amazon.com",
+      },
+      {
+        name: "AWS Lambda",
+        icon: "https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/awslambda.svg",
+        url: "https://aws.amazon.com/lambda/",
+      },
+      {
+        name: "DynamoDB",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dynamodb/dynamodb-original.svg",
+        url: "https://aws.amazon.com/dynamodb/",
+      },
+      {
+        name: "Terraform",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg",
+        url: "https://www.terraform.io",
+      },
+      {
+        name: "GitHub Actions",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg",
+        url: "https://github.com/features/actions",
+      },
+    ],
+  },
+  {
     title: "DEVELOPER TOOLS",
     items: [
       {

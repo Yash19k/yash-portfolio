@@ -25,7 +25,6 @@
   }
 
   html {
-    scroll-behavior: smooth;
     font-family: 'Space Grotesk', Inter, system-ui, -apple-system, sans-serif;
   }
 
@@ -115,4 +114,16 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Lenis smooth scrolling */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }

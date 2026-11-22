@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./MyWork.css";
 import WorkImage from "./WorkImage";
 import { referenceProjects, projectDetails } from "../data";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MdArrowOutward, MdInfoOutline } from 'react-icons/md';
+import { MdArrowBack, MdArrowOutward, MdInfoOutline } from 'react-icons/md';
 import { FaGithub } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,74 +12,87 @@ gsap.registerPlugin(ScrollTrigger);
 const MyWork = () => {
   const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({});
 
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const flexRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    // Disable pinning on mobile to allow natural vertical scrolling
-    if (window.innerWidth <= 768) return;
+    const section = sectionRef.current;
+    const flex = flexRef.current;
+    if (!section || !flex) return;
 
-    let translateX = 0;
+    const mm = gsap.matchMedia();
 
-    function setTranslateX() {
-      const boxes = document.getElementsByClassName("work-box");
-      if (boxes.length === 0) return;
+    // Horizontal scroll only on desktop; mobile stacks the cards vertically.
+    mm.add("(min-width: 769px)", () => {
+      // How far the card row must slide so the last card's right edge meets the viewport edge.
+      // Measured from the last card (not scrollWidth: the row's decorative ::before/::after
+      // lines are 50000vw wide). The current x offset is subtracted so it works mid-scroll.
+      const distance = () => {
+        const last = flex.lastElementChild as HTMLElement | null;
+        if (!last) return 0;
+        const currentX = Number(gsap.getProperty(flex, "x")) || 0;
+        const right = last.getBoundingClientRect().right - currentX;
+        return Math.max(0, Math.round(right - document.documentElement.clientWidth));
+      };
+      // Scroll length spent sliding (longer than the slide itself so it feels unhurried),
+      // then a short pause after the last card arrives, before the page moves on.
+      const SLIDE_PACE = 1.6;
+      const slideScroll = () => Math.round(distance() * SLIDE_PACE);
+      const hold = () => Math.round(window.innerHeight * 0.25);
 
-      const container = document.querySelector(".work-container");
-      if (!container) return;
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: () => `+=${slideScroll() + hold()}`,
+          scrub: 1, // eases toward the scroll position instead of snapping 1:1
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
 
-      const rectLeft = container.getBoundingClientRect().left;
-      const rect = boxes[0].getBoundingClientRect();
-      const parentWidth = boxes[0].parentElement!.getBoundingClientRect().width;
-      const padding = parseInt(window.getComputedStyle(boxes[0]).padding) / 2;
-
-      translateX = rect.width * boxes.length - (rectLeft + parentWidth) + padding;
-    }
-
-    setTranslateX();
-
-    let timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".work-section",
-        start: "top top",
-        end: () => `+=${translateX}`, // Dynamic end with 400px hold buffer
-        scrub: true,
-        pin: true,
-        id: "work-p2",
-        invalidateOnRefresh: true,
-      },
+      tl.to(flex, { x: () => -distance(), ease: "none", duration: () => slideScroll() })
+        .to({}, { duration: () => hold() });
     });
 
-    timeline.to(".work-flex", {
-      x: () => -translateX, // Dynamic target
-      ease: "none",
-      duration: translateX, // Tween duration scales to horizontal distance
-    });
-
-    // Explicitly sequence 400px of vertical hold where no horizontal movement occurs
-    timeline.to({}, {
-      duration: 400,
-    });
-
-    // Handle resize
-    const handleResize = () => {
-      setTranslateX();
+    // Content above (hero, timeline, images, web fonts) can change height after mount,
+    // which would leave the pin start/end stale. Re-measure whenever the page resizes.
+    let raf = 0;
+    let lastHeight = document.body.offsetHeight;
+    const refresh = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+        lastHeight = document.body.offsetHeight;
+      });
     };
-    window.addEventListener("resize", handleResize);
+    const ro = new ResizeObserver(() => {
+      // Ignore the height change caused by our own refresh (pin spacing).
+      if (Math.abs(document.body.offsetHeight - lastHeight) > 1) refresh();
+    });
+    ro.observe(document.body);
+    window.addEventListener("load", refresh);
+    document.fonts?.ready.then(refresh);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-      timeline.kill();
-      ScrollTrigger.getById("work-p2")?.kill();
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      window.removeEventListener("load", refresh);
+      // revert() removes the pin-spacer wrapper and inline styles, so a re-run
+      // (e.g. React StrictMode in dev) starts from a clean DOM.
+      mm.revert();
     };
   }, []);
 
   return (
-    <div className="work-section" id="work">
+    <div className="work-section" id="work" ref={sectionRef}>
       <div className="work-container section-container">
         <h2 className="cursor-target">
           My <span>Work</span>
         </h2>
-        <div className="work-flex">
+        <div className="work-flex" ref={flexRef}>
           {referenceProjects.map((project, index) => {
-            const isFirstProject = index === 0;
             const isFlipped = !!flippedCards[index];
             const details = projectDetails[project.detailKey];
 
@@ -125,24 +138,17 @@ const MyWork = () => {
                         </span>
                       )}
 
-                      {/* Live Demo button (center - first project only) */}
-                      {isFirstProject && (
-                        project.liveUrl ? (
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="work-action-btn live-btn"
-                          >
-                            <MdArrowOutward style={{ marginRight: '6px', fontSize: '16px' }} />
-                            Live Demo
-                          </a>
-                        ) : (
-                          <span className="work-action-btn disabled-btn">
-                            <MdArrowOutward style={{ marginRight: '6px', fontSize: '16px' }} />
-                            Live Demo
-                          </span>
-                        )
+                      {/* Live Demo button (center - only when deployed) */}
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="work-action-btn live-btn"
+                        >
+                          <MdArrowOutward style={{ marginRight: '6px', fontSize: '16px' }} />
+                          Live Demo
+                        </a>
                       )}
 
                       {/* Know More button (right) */}
@@ -158,49 +164,41 @@ const MyWork = () => {
                   </div>
 
                   {/* BACK FACE */}
-                  <div className="work-card-back">
+                  <div className="work-card-back" data-lenis-prevent>
                     <div className="work-back-header">
                       <div className="work-back-title">
-                        <h3>0{index + 1}</h3>
+                        <span>0{index + 1}</span>
                         <h4>{project.title}</h4>
                       </div>
-                    </div>
-
-                    <div className="work-back-body">
-                      <div className="work-back-section">
-                        <h5>Overview</h5>
-                        <p>{details.overview}</p>
-                      </div>
-
-                      <div className="work-back-section">
-                        <h5>Key Features</h5>
-                        <ul>
-                          {details.features.map((feature, fIdx) => (
-                            <li key={fIdx}>• {feature}</li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="work-back-section">
-                        <h5>Tech Stack</h5>
-                        <p>{details.technologies}</p>
-                      </div>
-
-                      <div className="work-back-section">
-                        <h5>Contribution</h5>
-                        <p>{details.contribution}</p>
-                      </div>
-                    </div>
-
-                    <div className="back-actions">
                       <button
                         type="button"
                         onClick={() => setFlippedCards(prev => ({ ...prev, [index]: false }))}
-                        className="work-action-btn back-btn"
+                        className="work-back-close"
+                        aria-label={`Back to ${project.title} overview`}
                       >
-                        ↩ Back to Overview
+                        <MdArrowBack />
+                        Back
                       </button>
                     </div>
+
+                    <p className="work-back-lead">{details.overview}</p>
+
+                    <ul className="work-back-list">
+                      {details.features.map((feature, fIdx) => (
+                        <li key={fIdx}>{feature}</li>
+                      ))}
+                    </ul>
+
+                    <dl className="work-back-meta">
+                      <div>
+                        <dt>Built with</dt>
+                        <dd>{details.technologies}</dd>
+                      </div>
+                      <div>
+                        <dt>My role</dt>
+                        <dd>{details.contribution}</dd>
+                      </div>
+                    </dl>
                   </div>
 
                 </div>

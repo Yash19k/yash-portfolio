@@ -14,6 +14,7 @@ import { Contact } from './components/contact/Contact';
 import { Footer } from './components/layout/Footer';
 import { CursorDemoPage } from './components/ui/CursorDemoPage';
 import { ClickSpark } from './components/ui/ClickSpark';
+import { startSmoothScroll } from './lib/smoothScroll';
 import {
   CursorProvider as NewCursorProvider,
   Cursor as NewCursor,
@@ -33,6 +34,8 @@ export const App: React.FC = () => {
       window.removeEventListener('popstate', handleLocationChange);
     };
   }, []);
+
+  useEffect(() => startSmoothScroll(), []);
 
   useEffect(() => {
     const checkTouch = () => {

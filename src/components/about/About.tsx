@@ -4,12 +4,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SectionHeading } from '../ui/SectionHeading';
 import { aboutContent } from '../../config/site';
-import { Cpu, Globe, Layers, Compass, Database } from 'lucide-react';
 import { InvertedCursor } from '../ui/inverted-cursor';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const highlightedTerms = ['Turning', 'curiosity', 'code,', 'ideas', 'products,', 'challenges', 'opportunities.'];
+const highlightedWords = new Set(aboutContent.highlightedWords.map((w) => w.toLowerCase()));
 
 const fadeRight = {
   hidden: { opacity: 0, x: 20 },
@@ -34,7 +33,7 @@ export const About: React.FC = () => {
   const wordsRef = useRef<HTMLDivElement>(null);
 
   const paragraph1Words = aboutContent.fullText.split(' ');
-  const paragraph2Words = (aboutContent as Record<string, string>).secondParagraph.split(' ');
+  const paragraph2Words = aboutContent.secondParagraph.split(' ');
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -75,7 +74,7 @@ export const About: React.FC = () => {
       <SectionHeading
         number="01"
         title="About Me"
-        subtitle="Building intelligent, scalable, and user-focused software solutions."
+        subtitle={aboutContent.subtitle}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -85,28 +84,19 @@ export const About: React.FC = () => {
             {/* Ambient corner highlight */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="flex items-center gap-2 mb-6 font-mono text-xs text-slate-400">
-              <Compass className="w-3.5 h-3.5 text-violet-400" />
-              <span className="text-violet-400 font-semibold">CORE IDENTITY</span>
-              <span>// PERSPECTIVE</span>
-            </div>
-
             {/* Scroll-Scrubbed Word Reveal */}
             <div ref={wordsRef}>
               {/* Paragraph 1 — Main statement */}
               <h3 className="font-normal leading-[1.35] tracking-tight font-display" style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3rem)' }}>
                 {paragraph1Words.map((word, i) => {
-                  const isHighlight = highlightedTerms.some((t) =>
-                    word.toLowerCase() === t.toLowerCase() ||
-                    word.toLowerCase().replace(/[,.]/g, '') === t.toLowerCase().replace(/[,.]/g, '')
-                  );
+                  const isHighlight = highlightedWords.has(word.toLowerCase());
 
                   return (
                     <span
                       key={`p1-${i}`}
                       className={`about-word inline-block mr-[0.28em] mb-1.5 ${
                         isHighlight
-                          ? 'font-semibold text-violet-400'
+                          ? 'text-violet-300'
                           : 'text-slate-50'
                       }`}
                     >
@@ -136,85 +126,26 @@ export const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Right: Focus Areas */}
+        {/* Right: what I work on, each backed by a project */}
         <motion.div
           variants={cardContainerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="lg:col-span-4 space-y-4"
+          className="lg:col-span-4"
         >
-          {/* Card 1: Full-Stack Development */}
-          <motion.div
-            variants={fadeRight}
-            className="p-5 rounded-xl bg-surface/60 border border-white/[0.06] hover:border-violet-500/30 transition-all duration-300 group"
-          >
-            <div className="flex items-center gap-3 mb-2.5">
-              <div className="p-2 rounded-lg bg-sky-500/10 text-sky-400 group-hover:bg-sky-500/20 transition-colors">
-                <Globe className="w-4 h-4" />
-              </div>
-              <h4 className="text-sm font-semibold text-white uppercase tracking-wider font-mono">
-                Full-Stack Development
-              </h4>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed font-sans">
-              Building responsive web applications with React, TypeScript, REST APIs, Django, and modern backend technologies.
-            </p>
-          </motion.div>
-
-          {/* Card 2: AI & Machine Learning */}
-          <motion.div
-            variants={fadeRight}
-            className="p-5 rounded-xl bg-surface/60 border border-white/[0.06] hover:border-violet-500/30 transition-all duration-300 group"
-          >
-            <div className="flex items-center gap-3 mb-2.5">
-              <div className="p-2 rounded-lg bg-violet-500/10 text-violet-400 group-hover:bg-violet-500/20 transition-colors">
-                <Cpu className="w-4 h-4" />
-              </div>
-              <h4 className="text-sm font-semibold text-white uppercase tracking-wider font-mono">
-                AI & Machine Learning
-              </h4>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed font-sans">
-              Exploring machine learning, computer vision, predictive modeling, and practical AI applications.
-            </p>
-          </motion.div>
-
-          {/* Card 3: Software Engineering */}
-          <motion.div
-            variants={fadeRight}
-            className="p-5 rounded-xl bg-surface/60 border border-white/[0.06] hover:border-violet-500/30 transition-all duration-300 group"
-          >
-            <div className="flex items-center gap-3 mb-2.5">
-              <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500/20 transition-colors">
-                <Layers className="w-4 h-4" />
-              </div>
-              <h4 className="text-sm font-semibold text-white uppercase tracking-wider font-mono">
-                Software Engineering
-              </h4>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed font-sans">
-              Designing maintainable systems, working with databases and APIs, and developing reliable, production-oriented applications.
-            </p>
-          </motion.div>
-
-          {/* Card 4: Data & Database Engineering */}
-          <motion.div
-            variants={fadeRight}
-            className="p-5 rounded-xl bg-surface/60 border border-white/[0.06] hover:border-violet-500/30 transition-all duration-300 group"
-          >
-            <div className="flex items-center gap-3 mb-2.5">
-              <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500/20 transition-colors">
-                <Database className="w-4 h-4" />
-              </div>
-              <h4 className="text-sm font-semibold text-white uppercase tracking-wider font-mono">
-                Data & Database Engineering
-              </h4>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed font-sans">
-              Working with PostgreSQL, MySQL, MongoDB, and data-driven applications, with a focus on efficient data modeling, querying, and backend integration.
-            </p>
-          </motion.div>
+          <h3 className="text-sm text-slate-400 mb-2">What I work on</h3>
+          <ul className="divide-y divide-white/[0.07] border-y border-white/[0.07]">
+            {aboutContent.focusAreas.map((area) => (
+              <motion.li key={area.title} variants={fadeRight} className="py-5">
+                <h4 className="text-[17px] font-medium text-white">{area.title}</h4>
+                <p className="mt-1.5 text-sm text-slate-400 leading-relaxed">{area.body}</p>
+                <p className="mt-2.5 font-mono text-xs text-slate-500">
+                  Built into <span className="text-violet-300">{area.seenIn}</span>
+                </p>
+              </motion.li>
+            ))}
+          </ul>
         </motion.div>
       </div>
     </section>

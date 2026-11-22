@@ -26,12 +26,35 @@ export const siteConfig: SiteConfig = {
 };
 
 export const aboutContent = {
-  quoteLead: "Turning curiosity into code,",
-  quoteMiddle: "ideas into products, and challenges into opportunities.",
-  quoteEnd: "",
-  fullText: "Turning curiosity into code, ideas into products, and challenges into opportunities.",
-  secondParagraph: "Driven to create, challenge the ordinary, and turn bold ideas into meaningful experiences. Always learning, experimenting, and pushing what's possible.",
-  subBio: "My current focus is on strengthening my skills in React, TypeScript, Python, Django, REST APIs, databases, and AI/ML while building real-world projects and continuously improving my problem-solving abilities.",
+  subtitle: "Computer Science student at LJ University. I learn by building things and putting them online.",
+  fullText: "I build web apps, serverless backends on AWS, and the ML models that sit behind them.",
+  highlightedWords: ["web", "apps,", "serverless", "backends", "ML", "models"],
+  secondParagraph:
+    "Lately that has meant a quiz game that runs 250 players at once with no servers, a file-sharing service whose links expire on schedule, and a crop-disease classifier that reaches 98% macro-F1.",
+  subBio:
+    "I started my B.Tech in Computer Science in 2024, and I'm currently a Frontend Developer Intern at Kiara TechX.",
+  focusAreas: [
+    {
+      title: "Full-stack web",
+      body: "React and TypeScript on the front end, Django or Node APIs and PostgreSQL behind them.",
+      seenIn: "Obrix, DropVault",
+    },
+    {
+      title: "Serverless on AWS",
+      body: "Lambda, API Gateway, DynamoDB and S3, with the infrastructure written as code in Terraform and SAM.",
+      seenIn: "Quibble, DropVault",
+    },
+    {
+      title: "Machine learning",
+      body: "Training and evaluating models in PyTorch and scikit-learn, then serving them behind an API.",
+      seenIn: "AgriSmart AI",
+    },
+    {
+      title: "Geospatial data",
+      body: "PostGIS queries and Leaflet maps for scoring and comparing real-world locations.",
+      seenIn: "Obrix",
+    },
+  ],
 };
 
 export const projectsData: ProjectItem[] = [

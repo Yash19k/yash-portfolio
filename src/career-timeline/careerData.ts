@@ -43,10 +43,10 @@ export const careerData: CareerEntry[] = [
     side: "left"
   },
   {
-    position: "Seeking Full-Stack & AI/ML Internship",
-    company: "Currently Looking for Opportunities",
-    period: "2026",
-    description: "Looking for internship opportunities in Full-Stack Development and AI/ML where I can apply my skills to real-world projects, contribute to a development team, and continue growing as a developer.",
+    position: "Frontend Developer Intern",
+    company: "Kiara TechX",
+    period: "2026 – Present",
+    description: "Currently working as a Frontend Developer Intern at Kiara TechX, building user interfaces as part of the development team.",
     side: "right"
   }
 ];

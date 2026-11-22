@@ -11,48 +11,46 @@ export interface ProjectEntry {
   detailKey: string;
 }
 
-
 export const referenceProjects: ProjectEntry[] = [
   {
     title: "Obrix",
     category: "AI-Powered Geospatial Location Intelligence Platform",
     tools: "React, Django REST Framework, PostgreSQL, PostGIS, Leaflet",
-    image: "/images/obrix.png",
+    image: "/images/obrix-cover.webp",
     githubUrl: "https://github.com/Yash19k/Obrix-Location-Intelligence-Platform",
     liveUrl: "https://obrix-frontend.onrender.com/",
     link: "https://github.com/Yash19k/Obrix-Location-Intelligence-Platform",
-    video: "video.webm",
     detailKey: "obrix"
   },
   {
-    title: "AI-Powered Learning Platform",
-    category: "Web Application (2025)",
-    tools: "HTML, CSS, JavaScript, Bootstrap, AI",
-    image: "/images/academix.png",
-    githubUrl: "https://github.com/Yash19k/Academix",
-    link: "https://github.com/Yash19k/Academix",
-    video: "video.webm",
-    detailKey: "learningPlatform"
+    title: "Quibble",
+    category: "Real-Time Multiplayer Quiz Game on Serverless AWS",
+    tools: "AWS Lambda, API Gateway WebSockets, DynamoDB, S3, CloudWatch, IAM, Node.js",
+    image: "/images/quibble-cover.webp",
+    githubUrl: "https://github.com/Yash19k/quibble",
+    liveUrl: "https://quibble-frontendbucket-xbdspxx14ytn.s3.ap-south-1.amazonaws.com/index.html",
+    link: "https://github.com/Yash19k/quibble",
+    detailKey: "quibble"
   },
   {
-    title: "Logistics Management System",
-    category: "Java Application (2025)",
-    tools: "Java, JDBC, MySQL, Google Maps API",
-    image: "/images/lms.png",
-    githubUrl: "https://github.com/Yash19k/LMS",
-    link: "https://github.com/Yash19k/LMS",
-    video: "video.webm",
-    detailKey: "logistics"
+    title: "DropVault",
+    category: "Serverless Secure File Sharing on AWS",
+    tools: "React, AWS Lambda (Python), S3, DynamoDB, API Gateway, SES, KMS, Terraform",
+    image: "/images/dropvault-cover.webp",
+    githubUrl: "https://github.com/Yash19k/dropvault",
+    liveUrl: "https://dropvault.d1m5hv4o1y7mm2.amplifyapp.com",
+    link: "https://github.com/Yash19k/dropvault",
+    detailKey: "dropvault"
   },
   {
-    title: "TransitOps",
-    category: "Smart Transport Operations Platform",
-    tools: "React, TypeScript, Python, FastAPI, WebSockets, PostgreSQL, Tailwind CSS, Scikit-learn",
-    image: "/images/transitops.png",
-    githubUrl: "https://github.com/Yash19k/TransitOps-Smart-Transport-Operations-Platform",
-    link: "https://github.com/Yash19k/TransitOps-Smart-Transport-Operations-Platform",
-    video: "video.webm",
-    detailKey: "transitOps"
+    title: "AgriSmart AI",
+    category: "AI Crop Disease Detection & Farm Advisory (SIH 2026)",
+    tools: "PyTorch (ConvNeXt-Tiny), Scikit-learn, XGBoost, Django REST, React, Groq LLM",
+    image: "/images/agrismart-cover.webp",
+    githubUrl: "https://github.com/Yash19k/Agrismart-AI",
+    liveUrl: "https://agrismart-ai-mu.vercel.app",
+    link: "https://github.com/Yash19k/Agrismart-AI",
+    detailKey: "agrismart"
   }
 ];
 
@@ -66,12 +64,12 @@ export interface ProjectDetailEntry {
 export const projectDetails: Record<string, ProjectDetailEntry> = {
   obrix: {
     overview:
-      "An AI-powered geospatial platform designed to analyze locations and provide intelligent site-readiness insights.",
+      "An AI-powered geospatial platform that analyzes candidate locations and produces site-readiness insights from accessibility, infrastructure and surrounding-area data.",
     features: [
-      "Geospatial site analysis",
-      "Location intelligence",
-      "Interactive map visualization",
-      "AI-generated insights"
+      "Multi-factor site suitability scoring",
+      "Radius catchment & amenity proximity analysis",
+      "Interactive Leaflet / OpenStreetMap layers",
+      "AI-generated location insights"
     ],
     technologies:
       "React, Django REST Framework, PostgreSQL, PostGIS, Leaflet",
@@ -79,48 +77,48 @@ export const projectDetails: Record<string, ProjectDetailEntry> = {
       "Full-stack development, geospatial integration, frontend architecture and API integration."
   },
 
-  learningPlatform: {
+  quibble: {
     overview:
-      "A smart learning platform designed to provide students with structured learning resources and AI-assisted learning.",
+      "A live multiplayer quiz where a host shares a 6-character code and up to 250 players race the same countdown from their phones, with no servers to manage.",
     features: [
-      "Video learning",
-      "Notes",
-      "Quizzes",
-      "AI chatbot"
+      "WebSocket gameplay for 250 players per game",
+      "Server-authoritative timing & speed scoring",
+      "Reconnect-safe games, 5 question types, QR join",
+      "Admin console, CloudWatch metrics & alarms"
     ],
     technologies:
-      "HTML, CSS, JavaScript, Bootstrap, AI",
+      "API Gateway (WebSocket + HTTP), Lambda (Node.js 22), DynamoDB, S3, CloudWatch, IAM, AWS SAM",
     contribution:
-      "Frontend development and application architecture."
+      "Serverless architecture, contention-free DynamoDB data model, real-time game engine and frontend."
   },
 
-  logistics: {
+  dropvault: {
     overview:
-      "A Java-based logistics management application for managing users, logistics operations and distance-based fare calculations.",
+      "Share files with links that expire. Browsers upload straight to S3, and every link has its own lifetime, download limit and stats.",
     features: [
-      "Admin and user roles",
-      "Logistics management",
-      "Database integration",
-      "Distance-based fare calculation"
+      "Resumable multipart uploads direct to S3",
+      "Expiring links by email, URL or QR code",
+      "Download limits, stats & instant link revocation",
+      "Per-user KMS encryption, quotas & admin panel"
     ],
     technologies:
-      "Java, JDBC, MySQL, Google Maps API",
+      "React 19, Vite, Tailwind, Python Lambdas, API Gateway, S3, DynamoDB, SES, KMS, Terraform, GitHub Actions",
     contribution:
-      "Application development, database integration and API integration."
+      "Infrastructure as code with Terraform, Lambda backend, auth and the React web app."
   },
 
-  transitOps: {
+  agrismart: {
     overview:
-      "A smart transportation operations platform designed to improve visibility and management of transport operations.",
+      "A farmer-first agriculture platform that pairs leaf-image disease detection with live weather, irrigation and crop advice.",
     features: [
-      "Transport operation management",
-      "Route monitoring",
-      "Operational insights",
-      "Interactive dashboard"
+      "ConvNeXt-Tiny classifier: 38 classes, 98.1% macro-F1",
+      "Crop recommendation (Random Forest)",
+      "Smart irrigation scheduling (XGBoost)",
+      "Multilingual AI agronomist (EN / HI / GU)"
     ],
     technologies:
-      "React, Django, PostgreSQL",
+      "PyTorch, Scikit-learn, XGBoost, Django REST Framework, React 19, Open-Meteo, Groq LLM",
     contribution:
-      "Full-stack development and system integration."
+      "Model training & evaluation, ML pipelines, Django API and React frontend."
   }
 };

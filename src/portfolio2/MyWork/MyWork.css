@@ -120,7 +120,7 @@
 
 .work-card-back {
   transform: rotateY(180deg);
-  padding: 60px 50px 40px 50px;
+  padding: 44px 48px 36px 48px;
   justify-content: start;
   border-left: 1px solid rgba(255, 255, 255, 0.02);
   overflow-y: auto;
@@ -144,88 +144,115 @@
 }
 
 .work-back-header {
-  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .work-back-title {
   display: flex;
   align-items: baseline;
-  gap: 15px;
+  gap: 12px;
+  min-width: 0;
 }
 
-.work-back-title h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 38px;
-  font-weight: 500;
-  line-height: 38px;
-  color: var(--accentColor);
-  opacity: 0.15;
+.work-back-title span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #7d7885;
 }
 
 .work-back-title h4 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 500;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
   color: #ffffff;
+  margin: 0;
 }
 
-.work-back-body {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex-grow: 1;
-  margin-bottom: 20px;
+.work-back-close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 13px;
+  color: #d9d4dc;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  transition: border-color 0.2s, color 0.2s;
 }
 
-.work-back-section h5 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--accentColor);
-  margin-bottom: 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding-bottom: 4px;
+.work-back-close:hover {
+  color: #ffffff;
+  border-color: var(--accentColor);
 }
 
-.work-back-section p {
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: #c9c3cc;
+.work-back-lead {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #e6e1e8;
+  margin: 0 0 18px;
 }
 
-.work-back-section ul {
+.work-back-list {
   list-style: none;
   padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
+  margin: 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
 }
 
-.work-back-section li {
-  font-size: 13px;
+.work-back-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.45;
   color: #c9c3cc;
 }
 
-.back-actions {
-  margin-top: auto;
-  margin-bottom: 15px;
+.work-back-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 8px;
+  height: 1px;
+  background: var(--accentColor);
+}
+
+.work-back-meta {
+  margin: auto 0 0;
   display: flex;
-  justify-content: flex-end;
-  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.work-action-btn.back-btn {
-  border-color: rgba(255, 255, 255, 0.1);
-  background-color: rgba(255, 255, 255, 0.02);
+.work-back-meta > div {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 12px;
 }
 
-.work-action-btn.back-btn:hover {
-  background-color: rgba(194, 164, 255, 0.08);
-  border-color: var(--accentColor);
+.work-back-meta dt {
+  font-size: 12.5px;
+  color: #7d7885;
+}
+
+.work-back-meta dd {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #c9c3cc;
 }
 
 .work-flex::before,
@@ -344,9 +371,15 @@
   border-radius: 8px;
 }
 
+/* Covers are 1200x630: keep that ratio so nothing is cropped. On short screens the
+   image is capped by height (--work-img-max-h) and shrinks its width to match. */
 .work-image img {
+  --work-img-max-h: 300px;
   width: 100%;
-  height: 220px;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  max-width: calc(var(--work-img-max-h) * 1200 / 630);
+  margin: 0 auto;
   object-fit: cover;
   border-radius: 8px;
   display: block;
@@ -354,12 +387,7 @@
 
 @media only screen and (max-height: 900px) {
   .work-image img {
-    height: 180px;
-  }
-
-  .work-box {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    --work-img-max-h: 180px;
   }
 
   .work-section h2 {
@@ -383,8 +411,16 @@
   }
 
   .work-box {
-    width: 450px;
-    padding: 50px;
+    width: 480px;
+    padding: 0;
+  }
+
+  .work-card-front {
+    padding: 36px 40px 28px;
+  }
+
+  .work-card-back {
+    padding: 36px 36px 28px;
   }
 
   .work-flex {
@@ -399,8 +435,16 @@
 
 @media only screen and (max-width: 1200px) {
   .work-box {
-    width: 350px;
-    padding: 30px;
+    width: 400px;
+    padding: 0;
+  }
+
+  .work-card-front {
+    padding: 30px 30px 24px;
+  }
+
+  .work-card-back {
+    padding: 30px 28px 24px;
   }
 
   .work-flex {
@@ -411,7 +455,7 @@
 
 @media only screen and (max-height: 650px) {
   .work-image img {
-    height: 140px;
+    --work-img-max-h: 140px;
   }
 
   .work-section h2 {
@@ -476,7 +520,7 @@
   }
 
   .work-image img {
-    max-height: 200px;
+    --work-img-max-h: 9999px;
   }
 }
 
@@ -548,7 +592,7 @@
   }
 
   .work-image img {
-    height: 180px;
+    --work-img-max-h: 180px;
   }
 
   .work-tools {
@@ -594,27 +638,54 @@
   }
 
   .work-image img {
-    height: 180px;
+    --work-img-max-h: 180px;
   }
 
   .work-tools {
     margin-top: 20px;
   }
 
-  .work-back-title h3 {
-    font-size: 32px !important;
-  }
-
   .work-back-title h4 {
-    font-size: 22px !important;
+    font-size: 20px;
   }
 
-  .work-back-section h5 {
-    font-size: 10px !important;
+  .work-back-lead {
+    font-size: 14px;
   }
 
-  .work-back-section p,
-  .work-back-section li {
-    font-size: 12.5px !important;
+  .work-back-list li {
+    font-size: 13px;
+  }
+}
+/* Short laptop screens: tighten the back face so it fits without scrolling. */
+@media only screen and (min-width: 769px) and (max-height: 760px) {
+  .work-back-header {
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+  }
+
+  .work-back-lead {
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .work-back-list {
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+
+  .work-back-list li {
+    font-size: 13px;
+  }
+
+  .work-back-meta {
+    gap: 8px;
+    padding-top: 12px;
+  }
+
+  .work-back-meta dd {
+    font-size: 12.5px;
+    line-height: 1.4;
   }
 }

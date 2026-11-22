@@ -2,12 +2,13 @@ import React from 'react';
 import { ArrowUp, Github, Linkedin, Mail, FileText } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { useCursor } from '../../context/CursorContext';
+import { smoothScrollTo } from '../../lib/smoothScroll';
 
 export const Footer: React.FC = () => {
   const { setCursorVariant, resetCursor } = useCursor();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollTo(0);
   };
 
   return (

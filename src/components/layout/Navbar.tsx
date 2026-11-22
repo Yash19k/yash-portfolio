@@ -1,3 +1,4 @@
+import { smoothScrollTo } from '../../lib/smoothScroll';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -34,7 +35,7 @@ export const Navbar: React.FC = () => {
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      smoothScrollTo(element);
     }
     setMobileMenuOpen(false);
   };

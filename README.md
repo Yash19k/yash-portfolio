@@ -223,52 +223,54 @@ yash-portfolio/
 
 <div align="center">
 
-### 2. TransitOps — Smart Transport Operations Platform
-**Real-Time Fleet Telemetry & Delay Forecasting**
+### 2. Quibble — Real-Time Multiplayer Quiz on Serverless AWS
+**250 Players, One Countdown, Zero Servers**
 
 </div>
 
-- **Overview**: A smart transportation operations platform engineered for real-time fleet tracking, delay prediction models, congestion telemetry, and dynamic route optimization.
-- **Tech Stack**: `React` • `TypeScript` • `Python` • `FastAPI` • `WebSockets` • `PostgreSQL` • `Tailwind CSS` • `Scikit-learn`
+- **Overview**: A live multiplayer quiz game. A host shares a 6-character code, up to 250 players join from their phones, and everyone races the same server-run countdown. Faster correct answers score more.
+- **Tech Stack**: `API Gateway (WebSocket + HTTP)` • `AWS Lambda (Node.js 22)` • `DynamoDB` • `S3` • `CloudWatch` • `IAM` • `AWS SAM`
 - **Key Features**:
-  - Sub-second vehicle telemetry simulation and broadcast over WebSockets.
-  - Predictive machine learning models to forecast junction delays.
-  - Real-time route monitoring and operational telemetry metrics.
-- **Links**: [GitHub Repository](https://github.com/Yash19k/TransitOps-Smart-Transport-Operations-Platform)
+  - Server-authoritative game engine: answers, timing and scoring never trust the browser.
+  - Contention-free DynamoDB data model so 250 simultaneous answers never hit the same item.
+  - Reconnect-safe games, five question types, streaks, QR-code join and a big-screen mode.
+  - Full admin console, CloudWatch metrics, alarms and email alerts.
+- **Links**: [Live Demo](https://quibble-frontendbucket-xbdspxx14ytn.s3.ap-south-1.amazonaws.com/index.html) • [GitHub Repository](https://github.com/Yash19k/quibble)
 
 ---
 
 <div align="center">
 
-### 3. Academix — AI-Powered Learning Platform
-**Structured Education & AI-Assisted Study Workspace**
+### 3. DropVault — Serverless Secure File Sharing
+**Share Files with Links That Expire**
 
 </div>
 
-- **Overview**: An educational web application designed to provide students with structured learning modules, interactive quizzes, and AI chatbot assistance.
-- **Tech Stack**: `HTML5` • `CSS3` • `JavaScript` • `Bootstrap` • `AI Chatbot Integration`
+- **Overview**: Upload files of any size straight to S3 and share them by email, link or QR code, with a chosen lifetime and download limit for every link.
+- **Tech Stack**: `React 19` • `Vite` • `Tailwind` • `Python Lambdas` • `API Gateway` • `S3` • `DynamoDB` • `SES` • `KMS` • `Terraform`
 - **Key Features**:
-  - Interactive video learning modules and categorized study notes.
-  - Integrated quiz evaluation engine with instant feedback.
-  - Embedded AI assistant for answering student queries.
-- **Links**: [GitHub Repository](https://github.com/Yash19k/Academix)
+  - Resumable multipart uploads with presigned URLs; file bytes never pass through Lambda.
+  - Expiring, download-limited links with per-link stats and instant revocation.
+  - Per-user KMS encryption, storage quotas, rate limiting and an admin panel with live health checks.
+  - One-command Terraform deploy, LocalStack offline mode, pytest + GitHub Actions CI.
+- **Links**: [Live Demo](https://dropvault.d1m5hv4o1y7mm2.amplifyapp.com) • [GitHub Repository](https://github.com/Yash19k/dropvault)
 
 ---
 
 <div align="center">
 
-### 4. LMS — Logistics Management System
-**Fleet Management, Role-Based Access & Distance Calculations**
+### 4. AgriSmart AI — Crop Disease Detection & Farm Advisory
+**Smart India Hackathon 2026 (Internal)**
 
 </div>
 
-- **Overview**: A Java-based enterprise logistics management application for managing fleets, users, logistics operations, and automated distance-based fare calculations.
-- **Tech Stack**: `Java` • `JDBC` • `MySQL` • `Google Maps API`
+- **Overview**: A farmer-first agriculture platform that pairs deep-learning leaf disease detection with live weather, irrigation scheduling, crop recommendation and a multilingual AI agronomist.
+- **Tech Stack**: `PyTorch` • `ConvNeXt-Tiny` • `Scikit-learn` • `XGBoost` • `Django REST Framework` • `React 19` • `Groq LLM`
 - **Key Features**:
-  - Role-based access control (Admin vs. User permissions).
-  - Automated distance calculations and fare estimation using Google Maps API.
-  - Secure relational database integration with MySQL.
-- **Links**: [GitHub Repository](https://github.com/Yash19k/LMS)
+  - ConvNeXt-Tiny classifier over 38 classes, trained on 71k images (98.09% macro-F1 on the held-out test set).
+  - Random Forest crop recommendation and XGBoost irrigation scheduling.
+  - Grounded AI agronomist in English, Hindi and Gujarati.
+- **Links**: [Live Demo](https://agrismart-ai-mu.vercel.app) • [GitHub Repository](https://github.com/Yash19k/Agrismart-AI)
 
 ---
 
