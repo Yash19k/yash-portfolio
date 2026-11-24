@@ -10,7 +10,6 @@ An interactive, high-performance developer portfolio featuring custom WebGL shad
 [![Live Demo](https://img.shields.io/badge/Live_Site-yashkshatriya.me-8B5CF6?style=for-the-badge&logo=googlechrome&logoColor=white)](https://yashkshatriya.me/)
 [![GitHub](https://img.shields.io/badge/GitHub-Yash19k-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Yash19k)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-yashkshatriya19-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yashkshatriya19/)
-[![LeetCode](https://img.shields.io/badge/LeetCode-Yash19k-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/Yash19k/)
 
 ---
 
@@ -360,7 +359,6 @@ The application compiles to static HTML/CSS/JS assets and can be deployed to any
 - 🌐 **Portfolio**: [yashkshatriya.me](https://yashkshatriya.me/)
 - 🐙 **GitHub**: [@Yash19k](https://github.com/Yash19k)
 - 💼 **LinkedIn**: [yashkshatriya19](https://www.linkedin.com/in/yashkshatriya19/)
-- 💻 **LeetCode**: [Yash19k](https://leetcode.com/u/Yash19k/)
 - 📧 **Email**: [kshatriyayash19@gmail.com](mailto:kshatriyayash19@gmail.com)
 
 ---

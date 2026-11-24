@@ -38,7 +38,6 @@ export interface SiteConfig {
     linkedin: string;
     email: string;
     twitter?: string;
-    leetcode?: string;
   };
   githubUsername: string;
   resumeUrl: string;
