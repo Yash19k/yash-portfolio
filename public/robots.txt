@@ -1,4 +1,4 @@
-# robots.txt for https://yashkshatriya.me
+# robots.txt for https://www.yashkshatriya.me
 # Everything on this site is public — search engines and AI assistants are welcome.
 
 User-agent: *
@@ -33,4 +33,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://yashkshatriya.me/sitemap.xml
+Sitemap: https://www.yashkshatriya.me/sitemap.xml

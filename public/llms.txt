@@ -2,10 +2,10 @@
 
 > Yash Kshatriya is an AI/ML and full-stack developer and a B.Tech Computer Science & Engineering student at LJ University (started 2024). He is currently a Frontend Developer Intern at Kiara TechX. He builds React/TypeScript web apps, serverless backends on AWS, and machine-learning models served behind APIs.
 
-- Website: https://yashkshatriya.me/
+- Website: https://www.yashkshatriya.me/
 - GitHub: https://github.com/Yash19k
 - LinkedIn: https://www.linkedin.com/in/yashkshatriya19/
-- Resume (PDF): https://yashkshatriya.me/Yash_Kshatriya_Resume.pdf
+- Resume (PDF): https://www.yashkshatriya.me/Yash_Kshatriya_Resume.pdf
 - Email: kshatriyayash19@gmail.com
 - Status: open to internships, freelance work and collaboration
 
