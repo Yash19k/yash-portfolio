@@ -11,7 +11,8 @@ const CareerTimeline: React.FC = () => {
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    let animationFrameId: number;
+    let animationFrameId = 0;
+    let running = false;
     let targetProgress = 0;
     let currentProgress = 0;
 
@@ -80,22 +81,37 @@ const CareerTimeline: React.FC = () => {
         }
       });
 
-      animationFrameId = requestAnimationFrame(updateLoop);
+      if (running) animationFrameId = requestAnimationFrame(updateLoop);
+    };
+
+    // The loop reads layout (getBoundingClientRect) every frame, so only run it while the
+    // timeline is on or near the screen. Off screen nothing it updates is visible.
+    const start = () => {
+      if (running) return;
+      running = true;
+      handleScroll();
+      currentProgress = targetProgress; // resume at the current position instead of sweeping
+      updateLoop();
+    };
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(animationFrameId);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
-    
-    // Initial calculation
-    handleScroll();
-    
-    // Start animation loop
-    updateLoop();
+
+    const visibility = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? start() : stop()),
+      { rootMargin: "200px 0px" }
+    );
+    if (sectionRef.current) visibility.observe(sectionRef.current);
 
     return () => {
+      visibility.disconnect();
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
-      cancelAnimationFrame(animationFrameId);
+      stop();
     };
   }, []);
 

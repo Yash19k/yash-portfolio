@@ -49,6 +49,11 @@ export class ImageAtomizer {
   // Internal state
   public isRunning = false;
   private rafId: number | null = null;
+  // Once every particle has settled the frames are identical, so the loop sleeps (keeping the
+  // last frame on the canvas) until input or a resize could move something again.
+  private sleeping = false;
+  private stillFrames = 0;
+  private destroyed = false;
   private image: HTMLImageElement | null = null;
   private isImageLoaded = false;
   private imageData: ImageData | null = null;
@@ -200,6 +205,7 @@ export class ImageAtomizer {
     this.$canv.onmouseout = () => {
       this.mx = -1;
       this.my = -1;
+      this.wake(); // let displaced particles drift back
     };
 
     if (supportsSwipeEvents()) {
@@ -207,6 +213,7 @@ export class ImageAtomizer {
         const offset = getOffset(this.$container!);
         this.mx = x - offset.x + window.scrollX;
         this.my = y - offset.y + window.scrollY;
+        this.wake();
       };
       
       this.$canv.ontouchstart = (event) => {
@@ -218,12 +225,14 @@ export class ImageAtomizer {
       this.$canv.ontouchend = () => {
         this.mx = -1;
         this.my = -1;
+        this.wake();
       };
     } else {
       this.$canv.onmousemove = (event) => {
         const offset = getOffset(this.$container!);
         this.mx = event.clientX - offset.x + window.scrollX;
         this.my = event.clientY - offset.y + window.scrollY;
+        this.wake();
       };
     }
   }
@@ -453,6 +462,7 @@ export class ImageAtomizer {
       this.imageDataHeight = 0;
       this.imageData32 = null;
       this.init();
+      this.wake(); // new targets: particles need to move again
     }
   }
 
@@ -487,7 +497,16 @@ export class ImageAtomizer {
     this.lastTimestamp = null;
   }
 
+  /** Restart the loop if it went to sleep after the particles settled. */
+  public wake() {
+    if (!this.sleeping || this.destroyed) return;
+    this.sleeping = false;
+    this.stillFrames = 0;
+    this.play();
+  }
+
   public destroy() {
+    this.destroyed = true;
     this.pause();
     // remove dummy element
     if (this.$srcCanv && this.$srcCanv.parentNode) {
@@ -524,9 +543,11 @@ export class ImageAtomizer {
     const hasMouse = mouseX >= 0 && this.mouseForce;
     const baseForce = 0.008;
     let i = 0;
+    let moving = !!hasMouse; // pointer interaction always counts as motion
 
     while (i < this.activeCount) {
       if (ttl[i] >= 0) {
+        moving = true; // leftover particles still fading out
         ttl[i] -= timeStep;
         if (ttl[i] <= 0) {
           const last = this.activeCount - 1;
@@ -599,6 +620,9 @@ export class ImageAtomizer {
       velY[i] *= this.dampingFactor;
       posX[i] += velX[i];
       posY[i] += velY[i];
+      if (!moving && (distanceSq >= 1.5625 || Math.abs(velX[i]) > 0.02 || Math.abs(velY[i]) > 0.02)) {
+        moving = true;
+      }
       i += 1;
     }
 
@@ -645,6 +669,16 @@ export class ImageAtomizer {
         this.perfAccumulatedMs = 0;
         this.perfAccumulatedDrawMs = 0;
         this.perfLastLog = frameEnd;
+      }
+    }
+
+    // Settled for a few frames in a row: stop redrawing an unchanged image until woken.
+    if (!this.restless) {
+      this.stillFrames = moving ? 0 : this.stillFrames + 1;
+      if (this.stillFrames >= 3) {
+        this.pause();
+        this.sleeping = true;
+        return;
       }
     }
 
