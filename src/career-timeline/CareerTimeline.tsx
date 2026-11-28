@@ -138,8 +138,8 @@ const CareerTimeline: React.FC = () => {
             {/* Left Column: Role Details & Period */}
             <div className="new-timeline-left">
               <div className="new-timeline-role-container">
-                <h4>{item.position}</h4>
-                <h5>{item.company}</h5>
+                <h3>{item.position}</h3>
+                <p className="new-timeline-company">{item.company}</p>
               </div>
               <div className="new-timeline-period">{item.period}</div>
             </div>

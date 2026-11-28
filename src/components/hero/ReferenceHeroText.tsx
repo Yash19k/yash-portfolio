@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import SocialButtons from "../../social-buttons";
-import { InteractiveHoverButton } from "../ui/interactive-hover-button";
+import { InteractiveHoverLink } from "../ui/interactive-hover-button";
 import { siteConfig } from "../../config/site";
 import "./ReferenceHeroText.css";
 
@@ -223,16 +223,13 @@ export const ReferenceHeroText = ({
             <span className="landing-h2-info-1">{titles[0]}</span>
           </p>
           <div className="landing-resume-wrapper" style={{ marginTop: "16px", pointerEvents: "auto" }}>
-            <a
+            <InteractiveHoverLink
               href={siteConfig.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block"
             >
-              <InteractiveHoverButton>
-                Resume
-              </InteractiveHoverButton>
-            </a>
+              Resume
+            </InteractiveHoverLink>
           </div>
         </div>
       </div>

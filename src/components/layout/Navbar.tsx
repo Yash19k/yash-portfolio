@@ -5,7 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
 import { useCursor } from '../../context/CursorContext';
-import { InteractiveHoverButton } from '../ui/interactive-hover-button';
+import { InteractiveHoverLink } from '../ui/interactive-hover-button';
 
 const NAV_ITEMS = [
   { label: 'About', href: '#about', id: 'about' },
@@ -95,18 +95,16 @@ export const Navbar: React.FC = () => {
 
         {/* Action Button: Resume */}
         <div className="hidden md:flex items-center">
-          <a
+          <InteractiveHoverLink
             href={siteConfig.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block"
+            className="scale-90 transform origin-right"
             onMouseEnter={() => setCursorVariant('button')}
             onMouseLeave={resetCursor}
           >
-            <InteractiveHoverButton className="scale-90 transform origin-right">
-              Resume
-            </InteractiveHoverButton>
-          </a>
+            Resume
+          </InteractiveHoverLink>
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -148,16 +146,14 @@ export const Navbar: React.FC = () => {
               ))}
 
               <div className="pt-4 border-t border-white/10 flex justify-center">
-                <a
+                <InteractiveHoverLink
                   href={siteConfig.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full text-center"
+                  className="w-full"
                 >
-                  <InteractiveHoverButton className="w-full">
-                    Resume
-                  </InteractiveHoverButton>
-                </a>
+                  Resume
+                </InteractiveHoverLink>
               </div>
             </div>
           </motion.div>

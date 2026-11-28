@@ -118,7 +118,7 @@
   gap: 8px;
 }
 
-.new-timeline-role-container h4 {
+.new-timeline-role-container h3 {
   font-size: 28px;
   font-weight: 500;
   margin: 0;
@@ -126,7 +126,7 @@
   transition: color 0.3s ease;
 }
 
-.new-timeline-role-container h5 {
+.new-timeline-role-container .new-timeline-company {
   font-size: 18px;
   font-weight: 400;
   margin: 0;
@@ -157,7 +157,7 @@
   transform: scale(1.02);
 }
 
-.new-timeline-row.is-active .new-timeline-role-container h4 {
+.new-timeline-row.is-active .new-timeline-role-container h3 {
   color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
@@ -213,11 +213,11 @@
     margin-top: 5px;
   }
 
-  .new-timeline-role-container h4 {
+  .new-timeline-role-container h3 {
     font-size: 22px;
   }
 
-  .new-timeline-role-container h5 {
+  .new-timeline-role-container .new-timeline-company {
     font-size: 16px;
   }
 

@@ -4,8 +4,8 @@ import { techStackCategories } from "./data/technologies";
 export const TechStack = () => {
   return (
     <section className="techstack-new" id="stack">
-      {/* Video Background */}
-      <div className="techstack-video-container">
+      {/* Video Background (decorative, hidden from assistive tech) */}
+      <div className="techstack-video-container" aria-hidden="true">
         <video
           autoPlay
           loop
@@ -38,7 +38,8 @@ export const TechStack = () => {
                     title={tech.name}
                     data-cursor="disable"
                   >
-                    <img src={tech.icon} alt={tech.name} loading="lazy" decoding="async" />
+                    {/* Decorative: the visible name next to it already labels the link. */}
+                    <img src={tech.icon} alt="" loading="lazy" decoding="async" />
                     <span>{tech.name}</span>
                   </a>
                 ))}
