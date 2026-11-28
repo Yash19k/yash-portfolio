@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Page not found | Yash Kshatriya</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      :root {
+        --bg: #0a0e17;
+        --text: #eae5ec;
+        --muted: #94a3b8;
+        --accent: #c481ff;
+        --accent-strong: #8b5cf6;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        display: grid;
+        place-items: center;
+        padding: 24px 16px;
+        background:
+          radial-gradient(600px circle at 20% 15%, rgba(139, 92, 246, 0.18), transparent 60%),
+          radial-gradient(500px circle at 85% 90%, rgba(196, 129, 255, 0.10), transparent 60%),
+          var(--bg);
+        color: var(--text);
+        font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+        text-align: center;
+      }
+      main { max-width: 520px; }
+      .code {
+        margin: 0;
+        font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+        font-size: 14px;
+        letter-spacing: 0.3em;
+        color: var(--accent);
+      }
+      h1 {
+        margin: 12px 0 8px;
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        background: linear-gradient(180deg, #ffffff 0%, #c2a4ff 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      p { margin: 0 0 28px; color: var(--muted); line-height: 1.6; }
+      a.home {
+        display: inline-block;
+        padding: 12px 22px;
+        border: 1px solid rgba(196, 129, 255, 0.45);
+        border-radius: 999px;
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+      }
+      a.home:hover, a.home:focus-visible {
+        background-color: rgba(139, 92, 246, 0.18);
+        border-color: var(--accent);
+        outline: none;
+      }
+      .name { margin-top: 40px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #64748b; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="code">404</p>
+      <h1>Page not found</h1>
+      <p>The page you're looking for doesn't exist or has moved.</p>
+      <a class="home" href="/">Back to the homepage</a>
+      <p class="name">Yash Kshatriya · Full-Stack Developer</p>
+    </main>
+  </body>
+</html>
