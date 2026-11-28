@@ -111,7 +111,7 @@ const MyWork = () => {
                         </div>
                       </div>
                     </div>
-                    <WorkImage image={project.image} alt={project.title} link={project.link} video={project.video} />
+                    <WorkImage image={project.image} alt={`${project.title}: ${project.category} (screenshot)`} link={project.link} video={project.video} />
                     
                     <div className="work-tools">
                       <h4>Tools and features</h4>

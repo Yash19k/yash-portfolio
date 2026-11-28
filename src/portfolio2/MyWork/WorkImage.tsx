@@ -16,7 +16,14 @@ const WorkImage = (props: Props) => {
           data-cursor={"disable"}
           style={{ cursor: "none" }}
         >
-          <img src={props.image} alt={props.alt} />
+          <img
+            src={props.image}
+            alt={props.alt}
+            width={1200}
+            height={630}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </CometCard>
     </div>
