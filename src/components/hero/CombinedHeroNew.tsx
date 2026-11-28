@@ -1,11 +1,26 @@
-import React from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { ReferenceHeroText } from "./ReferenceHeroText";
 import ReferenceImageParticles from "./ReferenceImageParticles";
-import MoltenMetal from "./MoltenMetal";
-import Ribbons from "../ui/Ribbons";
 import yashImg from "./yash.png";
 
+// The WebGL background layers are decorative and heavy: load them only on devices with a
+// fine pointer and no reduced-motion preference, and keep them (and ogl) out of the main bundle.
+const MoltenMetal = lazy(() => import("./MoltenMetal"));
+const Ribbons = lazy(() => import("../ui/Ribbons"));
+
+const FANCY_QUERY = "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)";
+
 export const CombinedHeroNew: React.FC = () => {
+  const [fancy, setFancy] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia(FANCY_QUERY);
+    setFancy(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setFancy(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   return (
     <div
       id="hero"
@@ -18,7 +33,8 @@ export const CombinedHeroNew: React.FC = () => {
         overflow: "hidden"
       }}
     >
-      {/* 0. MoltenMetal background layer */}
+      {/* 0. MoltenMetal background layer (desktop only, lazy) */}
+      {fancy && (
       <div
         style={{
           width: "100%",
@@ -30,6 +46,7 @@ export const CombinedHeroNew: React.FC = () => {
           pointerEvents: "none"
         }}
       >
+        <Suspense fallback={null}>
         <MoltenMetal
           color1="#5227FF"
           color2="#FF9FFC"
@@ -50,9 +67,12 @@ export const CombinedHeroNew: React.FC = () => {
           mouseStrength={0.2}
           opacity={0.85}
         />
+        </Suspense>
       </div>
+      )}
 
-      {/* 0.1 Ribbons background layer */}
+      {/* 0.1 Ribbons background layer (desktop only, lazy) */}
+      {fancy && (
       <div
         style={{
           width: "100%",
@@ -64,6 +84,7 @@ export const CombinedHeroNew: React.FC = () => {
           pointerEvents: "none"
         }}
       >
+        <Suspense fallback={null}>
         <Ribbons
           colors={['#8B5CF6']}
           baseSpring={0.03}
@@ -78,7 +99,9 @@ export const CombinedHeroNew: React.FC = () => {
           effectAmplitude={1.2}
           backgroundColor={[0, 0, 0, 0]}
         />
+        </Suspense>
       </div>
+      )}
 
       {/* 1. Infinite particle canvas layer */}
       <div
