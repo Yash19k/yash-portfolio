@@ -33,8 +33,8 @@ export const ReferenceHeroText = ({
 
       const landingText = new SplitText(
         [
-          ...q(".landing-info h3"),
-          ...q(".landing-intro h2"),
+          ...q(".landing-info .landing-subtitle"),
+          ...q(".landing-intro .landing-greeting"),
           ...q(".landing-intro h1"),
         ] as any,
         {
@@ -185,7 +185,7 @@ export const ReferenceHeroText = ({
     <div ref={containerRef} className="landing-section-new">
       <div className="landing-container-new">
         <div className="landing-intro">
-          <h2>{greeting}</h2>
+          <p className="landing-greeting">{greeting}</p>
           <h1>
             {firstName}
             <br />
@@ -196,15 +196,19 @@ export const ReferenceHeroText = ({
           </div>
         </div>
         <div className="landing-info">
-          <h3>{subtitle}</h3>
-          <h2 className="landing-info-h2">
-            <div className="landing-h2-1">{titles[0]}</div>
-            <div className="landing-h2-2">{titles[1]}</div>
-          </h2>
-          <h2>
-            <div className="landing-h2-info">{titles[1]}</div>
-            <div className="landing-h2-info-1">{titles[0]}</div>
-          </h2>
+          <p className="landing-subtitle">{subtitle}</p>
+          {/* Rotating titles: rendered twice for the loop animation; the second copy is hidden
+              from assistive tech so each title is announced once. Spans (not divs) keep the
+              markup valid inside <p>; they are flex items / absolutely positioned, so they lay
+              out exactly like the previous divs. */}
+          <p className="landing-titles landing-info-h2">
+            <span className="landing-h2-1">{titles[0]}</span>
+            <span className="landing-h2-2">{titles[1]}</span>
+          </p>
+          <p className="landing-titles" aria-hidden="true">
+            <span className="landing-h2-info">{titles[1]}</span>
+            <span className="landing-h2-info-1">{titles[0]}</span>
+          </p>
           <div className="landing-resume-wrapper" style={{ marginTop: "16px", pointerEvents: "auto" }}>
             <a
               href={siteConfig.resumeUrl}

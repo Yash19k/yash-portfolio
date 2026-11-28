@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
-
 .landing-section-new {
   width: 100%;
   max-width: 1920px;
@@ -30,7 +28,7 @@
   left: 0;
 }
 
-.landing-intro h2 {
+.landing-intro .landing-greeting {
   margin: 0;
   color: var(--accentColor);
   font-size: 22px;
@@ -56,7 +54,7 @@
   z-index: 9;
 }
 
-.landing-info h3 {
+.landing-info .landing-subtitle {
   font-size: 22px;
   letter-spacing: 2px;
   font-weight: 300;
@@ -64,7 +62,7 @@
   margin: 0;
 }
 
-.landing-info h2 {
+.landing-info .landing-titles {
   margin: 0;
   margin-top: -20px;
   margin-left: 20px;
@@ -84,7 +82,7 @@
   top: 0;
 }
 
-h2.landing-info-h2 {
+.landing-titles.landing-info-h2 {
   color: var(--accentColor);
   font-size: 42px;
   width: 120%;
@@ -128,11 +126,11 @@ h2.landing-info-h2 {
 
 /* Media Queries */
 @media screen and (min-width: 500px) {
-  .landing-info h3 {
+  .landing-info .landing-subtitle {
     font-size: 18px;
   }
 
-  .landing-intro h2 {
+  .landing-intro .landing-greeting {
     font-size: 18px;
   }
 
@@ -141,12 +139,12 @@ h2.landing-info-h2 {
     line-height: 30px;
   }
 
-  .landing-info h2 {
+  .landing-info .landing-titles {
     font-size: 35px;
     line-height: 40px;
   }
 
-  h2.landing-info-h2 {
+  .landing-titles.landing-info-h2 {
     font-size: 38px;
   }
 }
@@ -156,7 +154,7 @@ h2.landing-info-h2 {
     width: 94%;
   }
 
-  .landing-intro h2 {
+  .landing-intro .landing-greeting {
     font-size: 25px;
   }
 
@@ -165,16 +163,16 @@ h2.landing-info-h2 {
     line-height: 35px;
   }
 
-  .landing-info h3 {
+  .landing-info .landing-subtitle {
     font-size: 25px;
   }
 
-  .landing-info h2 {
+  .landing-info .landing-titles {
     font-size: 45px;
     line-height: 42px;
   }
 
-  h2.landing-info-h2 {
+  .landing-titles.landing-info-h2 {
     font-size: 55px;
   }
 }
@@ -218,7 +216,7 @@ h2.landing-info-h2 {
 }
 
 @media screen and (min-width: 1600px) {
-  .landing-intro h2 {
+  .landing-intro .landing-greeting {
     font-size: 35px;
   }
 
@@ -227,16 +225,16 @@ h2.landing-info-h2 {
     line-height: 55px;
   }
 
-  .landing-info h3 {
+  .landing-info .landing-subtitle {
     font-size: 35px;
   }
 
-  .landing-info h2 {
+  .landing-info .landing-titles {
     font-size: 65px;
     line-height: 62px;
   }
 
-  h2.landing-info-h2 {
+  .landing-titles.landing-info-h2 {
     font-size: 75px;
   }
 }
