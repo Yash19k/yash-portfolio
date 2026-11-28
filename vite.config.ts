@@ -14,7 +14,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom', 'framer-motion', 'lucide-react', 'canvas-confetti'],
+          // Only libraries the first screen needs; canvas-confetti (contact section) loads lazily.
+          vendor: ['react', 'react-dom', 'framer-motion', 'lucide-react'],
         },
       },
     },
