@@ -31,20 +31,28 @@ export const ReferenceHeroText = ({
     const ctx = gsap.context(() => {
       const q = gsap.utils.selector(containerRef.current);
 
-      const landingText = new SplitText(
+      // SplitText's default aria mode puts aria-label on each split element, which ARIA
+      // prohibits on <p>/<span>. The greeting, subtitle and titles are split with
+      // aria: "hidden" instead; screen readers get the sr-only copies in the markup.
+      // The h1 keeps the default, since aria-label is valid on headings.
+      const introText = new SplitText(
         [
           ...q(".landing-info .landing-subtitle"),
           ...q(".landing-intro .landing-greeting"),
-          ...q(".landing-intro h1"),
         ] as any,
         {
           type: "chars,lines",
           linesClass: "split-line",
+          aria: "hidden",
         }
       );
+      const nameText = new SplitText(q(".landing-intro h1") as any, {
+        type: "chars,lines",
+        linesClass: "split-line",
+      });
 
       gsap.fromTo(
-        landingText.chars,
+        [...introText.chars, ...nameText.chars],
         { opacity: 0, y: 80, filter: "blur(5px)" },
         {
           opacity: 1,
@@ -57,7 +65,7 @@ export const ReferenceHeroText = ({
         }
       );
 
-      const TextProps = { type: "chars,lines", linesClass: "split-h2" };
+      const TextProps = { type: "chars,lines", linesClass: "split-h2", aria: "hidden" as const };
 
       const landingText2 = new SplitText(q(".landing-h2-info") as any, TextProps);
       gsap.fromTo(
@@ -185,7 +193,8 @@ export const ReferenceHeroText = ({
     <div ref={containerRef} className="landing-section-new">
       <div className="landing-container-new">
         <div className="landing-intro">
-          <p className="landing-greeting">{greeting}</p>
+          <p className="sr-only">{greeting}</p>
+          <p className="landing-greeting" aria-hidden="true">{greeting}</p>
           <h1>
             {firstName}{" "}
             <br />
@@ -196,12 +205,16 @@ export const ReferenceHeroText = ({
           </div>
         </div>
         <div className="landing-info">
-          <p className="landing-subtitle">{subtitle}</p>
-          {/* Rotating titles: rendered twice for the loop animation; the second copy is hidden
-              from assistive tech so each title is announced once. Spans (not divs) keep the
+          {/* One readable line for assistive tech; the animated copies below are aria-hidden. */}
+          <p className="sr-only">
+            {`${subtitle} ${titles.map((t) => t.replace(/\s*·\s*/g, ", ")).join(". ")}`}
+          </p>
+          <p className="landing-subtitle" aria-hidden="true">{subtitle}</p>
+          {/* Rotating titles: rendered twice for the loop animation. Both copies are hidden from
+              assistive tech (the sr-only line above carries the text). Spans (not divs) keep the
               markup valid inside <p>; they are flex items / absolutely positioned, so they lay
               out exactly like the previous divs. */}
-          <p className="landing-titles landing-info-h2">
+          <p className="landing-titles landing-info-h2" aria-hidden="true">
             <span className="landing-h2-1">{titles[0]}</span>
             <span className="landing-h2-2">{titles[1]}</span>
           </p>
