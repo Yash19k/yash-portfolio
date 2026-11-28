@@ -19,7 +19,7 @@ export interface ReferenceHeroTextProps {
 export const ReferenceHeroText = ({
   greeting = "Hello! I'm",
   name = "YASH KSHATRIYA",
-  subtitle = "Ahmedabad-based",
+  subtitle = "",
   titles = ["FULL-STACK DEVELOPER", "AI/ML ENGINEER"],
 }: ReferenceHeroTextProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -207,9 +207,9 @@ export const ReferenceHeroText = ({
         <div className="landing-info">
           {/* One readable line for assistive tech; the animated copies below are aria-hidden. */}
           <p className="sr-only">
-            {`${subtitle} ${titles.map((t) => t.replace(/\s*·\s*/g, ", ")).join(". ")}`}
+            {[subtitle, ...titles.map((t) => t.replace(/\s*·\s*/g, ", "))].filter(Boolean).join(". ")}
           </p>
-          <p className="landing-subtitle" aria-hidden="true">{subtitle}</p>
+          {subtitle && <p className="landing-subtitle" aria-hidden="true">{subtitle}</p>}
           {/* Rotating titles: rendered twice for the loop animation. Both copies are hidden from
               assistive tech (the sr-only line above carries the text). Spans (not divs) keep the
               markup valid inside <p>; they are flex items / absolutely positioned, so they lay
