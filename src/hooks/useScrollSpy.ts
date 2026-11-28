@@ -20,15 +20,35 @@ export const useScrollSpy = (sectionIds: string[]): string => {
     };
 
     const observer = new IntersectionObserver(handleIntersection, observerOptions);
+    const observed = new Set<string>();
 
-    sectionIds.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
-      }
-    });
+    const observeAvailable = () => {
+      sectionIds.forEach((id) => {
+        if (observed.has(id)) return;
+        const element = document.getElementById(id);
+        if (element) {
+          observer.observe(element);
+          observed.add(id);
+        }
+      });
+      return observed.size === sectionIds.length;
+    };
+
+    // Sections below the hero are lazy-loaded, so some ids may not exist yet on mount.
+    // Watch the DOM until every section has appeared, then stop watching.
+    let mutationObserver: MutationObserver | null = null;
+    if (!observeAvailable()) {
+      mutationObserver = new MutationObserver(() => {
+        if (observeAvailable()) {
+          mutationObserver?.disconnect();
+          mutationObserver = null;
+        }
+      });
+      mutationObserver.observe(document.body, { childList: true, subtree: true });
+    }
 
     return () => {
+      mutationObserver?.disconnect();
       observer.disconnect();
     };
   }, [sectionIds]);

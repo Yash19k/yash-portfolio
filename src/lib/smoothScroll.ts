@@ -27,6 +27,9 @@ export function startSmoothScroll(): () => void {
 /** Smoothly scrolls to an element or Y offset; falls back to native scrolling if Lenis is off. */
 export function smoothScrollTo(target: HTMLElement | number) {
   if (lenis) {
+    // Lenis caches the scroll limit and refreshes it on a debounced resize; if content was just
+    // added (e.g. the lazy sections), refresh it first or the target is clamped to the old limit.
+    lenis.resize();
     lenis.scrollTo(target, { duration: 1.4 });
   } else if (typeof target === "number") {
     window.scrollTo({ top: target, behavior: "smooth" });

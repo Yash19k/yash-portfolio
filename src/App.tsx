@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { CursorProvider } from './context/CursorContext';
 import { CustomCursor } from './components/layout/CustomCursor';
 import { ScrollProgress } from './components/layout/ScrollProgress';
 import { Navbar } from './components/layout/Navbar';
 import { CombinedHeroNew } from './components/hero/CombinedHeroNew';
-import { About } from './components/about/About';
-import MyWork from './portfolio2/MyWork/MyWork';
-import { TechStack } from './tech-stack';
-import CareerTimeline from './career-timeline';
-
-import { Contact } from './components/contact/Contact';
-import { Footer } from './components/layout/Footer';
 import { ClickSpark } from './components/ui/ClickSpark';
 import { startSmoothScroll } from './lib/smoothScroll';
 import {
   CursorProvider as NewCursorProvider,
   Cursor as NewCursor,
 } from './components/ui/cursor';
+
+// Sections below the hero (and the footer) share one lazy chunk: same import, fetched once.
+const BelowFold = lazy(() => import('./components/layout/BelowFold'));
+const Footer = lazy(() =>
+  import('./components/layout/BelowFold').then((m) => ({ default: m.Footer }))
+);
 
 export const App: React.FC = () => {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -82,17 +81,15 @@ export const App: React.FC = () => {
           {/* Main Content Sections */}
           <main className="relative z-10">
             <CombinedHeroNew />
-            <About />
-            <CareerTimeline />
-            <MyWork />
-
-            <TechStack />
-
-            <Contact />
+            <Suspense fallback={null}>
+              <BelowFold />
+            </Suspense>
           </main>
 
           {/* Minimalist Footer */}
-          <Footer />
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
         </div>
         <Analytics />
       </NewCursorProvider>
