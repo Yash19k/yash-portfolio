@@ -89,19 +89,22 @@ export const About: React.FC = () => {
               {/* Paragraph 1 — Main statement */}
               <h3 className="font-normal leading-[1.35] tracking-tight font-display" style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3rem)' }}>
                 {paragraph1Words.map((word, i) => {
-                  const isHighlight = highlightedWords.has(word.toLowerCase());
+                  const isHighlight = highlightedWords.has(word.toLowerCase().replace(/[.,:;!?]+$/, ''));
 
+                  // Real space after each word so the text reads correctly for crawlers,
+                  // screen readers and copy/paste (margin alone produces "Ibuildwebapps").
                   return (
-                    <span
-                      key={`p1-${i}`}
-                      className={`about-word inline-block mr-[0.28em] mb-1.5 ${
-                        isHighlight
-                          ? 'text-violet-300'
-                          : 'text-slate-50'
-                      }`}
-                    >
-                      {word}
-                    </span>
+                    <React.Fragment key={`p1-${i}`}>
+                      <span
+                        className={`about-word inline-block mb-1.5 ${
+                          isHighlight
+                            ? 'text-violet-300'
+                            : 'text-slate-50'
+                        }`}
+                      >
+                        {word}
+                      </span>{' '}
+                    </React.Fragment>
                   );
                 })}
               </h3>
@@ -109,12 +112,11 @@ export const About: React.FC = () => {
               {/* Paragraph 2 — Supporting statement (new line, smaller) */}
               <p className="mt-5 leading-[1.6] text-slate-300" style={{ fontSize: 'clamp(0.95rem, 1.2vw, 1.1rem)' }}>
                 {paragraph2Words.map((word, i) => (
-                  <span
-                    key={`p2-${i}`}
-                    className="about-word inline-block mr-[0.25em] mb-1"
-                  >
-                    {word}
-                  </span>
+                  <React.Fragment key={`p2-${i}`}>
+                    <span className="about-word inline-block mb-1">
+                      {word}
+                    </span>{' '}
+                  </React.Fragment>
                 ))}
               </p>
             </div>
