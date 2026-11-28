@@ -4,8 +4,8 @@ export const siteConfig: SiteConfig = {
   name: 'Yash Kshatriya',
   firstName: 'Yash',
   lastName: 'Kshatriya',
-  headline: 'AI / ML • FULL-STACK • COMPUTER SCIENCE',
-  role: 'AI / ML & Full-Stack Developer',
+  headline: 'FULL-STACK • REACT • AWS • AHMEDABAD',
+  role: 'Full-Stack Developer',
   subrole: 'Computer Science Engineering Student',
   statement: 'Building intelligent software, exploring AI, and turning ideas into real-world products.',
   email: import.meta.env.VITE_EMAIL || 'kshatriyayash19@gmail.com',
@@ -26,12 +26,12 @@ export const siteConfig: SiteConfig = {
 
 export const aboutContent = {
   subtitle: "Computer Science student at LJ University. I learn by building things and putting them online.",
-  fullText: "I build web apps, serverless backends on AWS, and the ML models that sit behind them.",
-  highlightedWords: ["web", "apps,", "serverless", "backends", "ML", "models"],
+  fullText: "I build full-stack web apps: React front ends, Node and Python backends, serverless AWS and the ML models behind them.",
+  highlightedWords: ["full-stack", "React", "Node", "Python", "serverless", "AWS", "ML"],
   secondParagraph:
     "Lately that has meant a quiz game that runs 250 players at once with no servers, a file-sharing service whose links expire on schedule, and a crop-disease classifier that reaches 98% macro-F1.",
   subBio:
-    "I started my B.Tech in Computer Science in 2024, and I'm currently a Frontend Developer Intern at Kiara TechX.",
+    "I'm a full-stack developer and B.Tech Computer Science student at LJ University (LJIET) in Ahmedabad. I work as a Frontend Developer Intern at Kiara TechX and I'm a core member of the technical team at the AWS Student Builder Group, LJIET, where I help run AWS sessions and workshops and maintain the group's website.",
   focusAreas: [
     {
       title: "Full-stack web",

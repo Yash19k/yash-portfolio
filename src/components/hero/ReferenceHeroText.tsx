@@ -19,8 +19,8 @@ export interface ReferenceHeroTextProps {
 export const ReferenceHeroText = ({
   greeting = "Hello! I'm",
   name = "YASH KSHATRIYA",
-  subtitle = "An Aspiring",
-  titles = ["AI/ML ENGINEER", "FULL STACK DEVELOPER"],
+  subtitle = "Ahmedabad-based",
+  titles = ["FULL-STACK DEVELOPER", "REACT · NODE · AWS · AI/ML"],
 }: ReferenceHeroTextProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 

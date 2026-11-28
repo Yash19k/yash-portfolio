@@ -3,7 +3,7 @@
 <div align="center">
 
 # ⚡ Yash Kshatriya
-### AI / ML & Full-Stack Developer • Computer Science Engineering
+### Full-Stack Developer • Ahmedabad, India
 
 An interactive, high-performance developer portfolio featuring custom WebGL shaders, fluid physics simulations, interactive GSAP typography, and deep-dive engineering showcase.
 
