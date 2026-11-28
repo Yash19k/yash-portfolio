@@ -187,7 +187,7 @@ export const ReferenceHeroText = ({
         <div className="landing-intro">
           <p className="landing-greeting">{greeting}</p>
           <h1>
-            {firstName}
+            {firstName}{" "}
             <br />
             <span>{lastName}</span>
           </h1>
