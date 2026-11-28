@@ -48,5 +48,12 @@ export const careerData: CareerEntry[] = [
     period: "2026 – Present",
     description: "Currently working as a Frontend Developer Intern at Kiara TechX, building user interfaces as part of the development team.",
     side: "right"
+  },
+  {
+    position: "Technical Team Core Member",
+    company: "AWS Student Builder Group, LJIET",
+    period: "2026 – Present",
+    description: "Core member of the technical team. I help run AWS sessions and hands-on workshops for students and maintain the group's official website.",
+    side: "left"
   }
 ];

@@ -1,6 +1,6 @@
 # Yash Kshatriya
 
-> Yash Kshatriya is an AI/ML and full-stack developer and a B.Tech Computer Science & Engineering student at LJ University (started 2024). He is currently a Frontend Developer Intern at Kiara TechX. He builds React/TypeScript web apps, serverless backends on AWS, and machine-learning models served behind APIs.
+> Yash Kshatriya is a full-stack developer based in Ahmedabad, India. Yash is a B.Tech Computer Science & Engineering student at LJ University (LJIET), a Frontend Developer Intern at Kiara TechX, and a core member of the technical team at the AWS Student Builder Group, LJIET. He builds React/TypeScript front ends, Node and Python backends, serverless AWS architectures and ML-powered web apps.
 
 - Website: https://www.yashkshatriya.me/
 - GitHub: https://github.com/Yash19k
@@ -19,7 +19,7 @@
 ## Projects
 
 - [Obrix](https://github.com/Yash19k/Obrix-Location-Intelligence-Platform): AI-powered geospatial location-intelligence platform. Scores candidate sites on accessibility, infrastructure and surrounding-area data using multi-factor suitability scoring, radius catchment and amenity-proximity analysis. Stack: React, Django REST Framework, PostgreSQL, PostGIS, Leaflet. Live: https://obrix-frontend.onrender.com/
-- [Quibble](https://github.com/Yash19k/quibble): Real-time multiplayer quiz game on serverless AWS. A host shares a 6-character code and up to 250 players race the same countdown from their phones, with server-authoritative timing, reconnect-safe games, 5 question types and QR join. Stack: API Gateway WebSockets, Lambda (Node.js 22), DynamoDB, S3, CloudWatch, AWS SAM.
+- [Quibble](https://github.com/Yash19k/quibble): Real-time multiplayer quiz game on serverless AWS. A host shares a 6-character code and up to 250 players race the same countdown from their phones, with server-authoritative timing, reconnect-safe games, 5 question types and QR join. Stack: API Gateway WebSockets, Lambda (Node.js 22), DynamoDB, S3, CloudWatch, AWS SAM. Live: https://quibble-frontendbucket-xbdspxx14ytn.s3.ap-south-1.amazonaws.com/index.html
 - [DropVault](https://github.com/Yash19k/dropvault): Serverless secure file sharing on AWS. Resumable multipart uploads straight to S3, expiring links by email/URL/QR, download limits, stats, instant revocation and per-user KMS encryption. Stack: React 19, Python Lambdas, API Gateway, S3, DynamoDB, SES, KMS, Terraform, GitHub Actions. Live: https://dropvault.d1m5hv4o1y7mm2.amplifyapp.com
 - [AgriSmart AI](https://github.com/Yash19k/Agrismart-AI): AI crop-disease detection and farm advisory platform (Smart India Hackathon 2026). ConvNeXt-Tiny leaf-disease classifier with 38 classes at 98.1% macro-F1, Random Forest crop recommendation, XGBoost irrigation scheduling and a multilingual (English/Hindi/Gujarati) AI agronomist. Stack: PyTorch, scikit-learn, XGBoost, Django REST Framework, React 19, Groq LLM. Live: https://agrismart-ai-mu.vercel.app
 
@@ -31,4 +31,4 @@ Python, TypeScript, JavaScript, Java, C, SQL, React, Django, Django REST Framewo
 
 - 2024: Completed Class 12; started B.Tech in Computer Science & Engineering at LJ University.
 - 2025: Started building full-stack applications; began the AI/ML journey.
-- 2026: Built multiple projects across full-stack, AI/ML and geospatial; joined Kiara TechX as a Frontend Developer Intern (present).
+- 2026: Built multiple projects across full-stack, AI/ML and geospatial; joined Kiara TechX as a Frontend Developer Intern (present); became a core member of the technical team at the AWS Student Builder Group, LJIET, helping run AWS sessions and workshops and maintaining the group's website (present).
