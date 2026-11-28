@@ -12,7 +12,6 @@ import CareerTimeline from './career-timeline';
 
 import { Contact } from './components/contact/Contact';
 import { Footer } from './components/layout/Footer';
-import { CursorDemoPage } from './components/ui/CursorDemoPage';
 import { ClickSpark } from './components/ui/ClickSpark';
 import { startSmoothScroll } from './lib/smoothScroll';
 import {
@@ -21,19 +20,8 @@ import {
 } from './components/ui/cursor';
 
 export const App: React.FC = () => {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const USE_NEW_CURSOR = true; // Set to false to revert back to the old CustomCursor
-
-  useEffect(() => {
-    const handleLocationChange = () => {
-      setCurrentPath(window.location.pathname);
-    };
-    window.addEventListener('popstate', handleLocationChange);
-    return () => {
-      window.removeEventListener('popstate', handleLocationChange);
-    };
-  }, []);
 
   useEffect(() => startSmoothScroll(), []);
 
@@ -44,10 +32,6 @@ export const App: React.FC = () => {
     };
     checkTouch();
   }, []);
-
-  if (currentPath === '/reference-cursor') {
-    return <CursorDemoPage />;
-  }
 
   return (
     <CursorProvider>

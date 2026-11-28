@@ -1,4 +1,4 @@
-import { ProjectItem, TechItem, SiteConfig } from '../types';
+import { TechItem, SiteConfig } from '../types';
 
 export const siteConfig: SiteConfig = {
   name: 'Yash Kshatriya',
@@ -15,12 +15,6 @@ export const siteConfig: SiteConfig = {
     github: import.meta.env.VITE_GITHUB_URL || 'https://github.com/Yash19k',
     linkedin: import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/in/yashkshatriya19/',
     email: `mailto:${import.meta.env.VITE_EMAIL || 'kshatriyayash19@gmail.com'}`,
-  },
-  coordinates: {
-    lat: '19.0760° N',
-    lon: '72.8777° E',
-    status: 'AVAILABLE FOR COLLABORATION',
-    focus: 'INTELLIGENT SYSTEMS & FULL-STACK',
   },
 };
 
@@ -55,81 +49,6 @@ export const aboutContent = {
     },
   ],
 };
-
-export const projectsData: ProjectItem[] = [
-  {
-    id: 'obrix',
-    number: '01',
-    title: 'OBRIX',
-    subtitle: 'GeoVision AI',
-    category: 'Geospatial Intelligence • AI / ML • Full-Stack',
-    description:
-      'An intelligent site-readiness and location-intelligence platform that analyzes geographic, accessibility, infrastructure, and surrounding-area data to help evaluate candidate locations.',
-    longDescription:
-      'Engineered with a full geospatial stack, Obrix processes spatial datasets using PostGIS and Leaflet to compute composite readiness indices, infrastructure catchment zones, and multi-factor location scoring in real-time.',
-    technologies: [
-      'React',
-      'Django',
-      'Django REST Framework',
-      'PostgreSQL',
-      'PostGIS',
-      'Leaflet',
-      'OpenStreetMap',
-      'Python',
-      'Geospatial Processing',
-    ],
-    features: [
-      'Automated site suitability scoring with multi-criteria spatial weights',
-      'Dynamic radius catchment analysis & amenity proximity calculation',
-      'Interactive raster & vector GIS layers with Leaflet / OpenStreetMap',
-      'REST API backend for geospatial queries and GeoJSON payloads',
-    ],
-    metrics: [
-      { label: 'Suitability Index', value: '94.8%' },
-      { label: 'Spatial Latency', value: '< 85ms' },
-      { label: 'Layers Processed', value: '12+ GIS' },
-    ],
-    liveUrl: '', // Add live URL when deployed
-    githubUrl: 'https://github.com/Yash19k/obrix-geovision',
-    featured: true,
-    visualType: 'map',
-  },
-  {
-    id: 'transitops',
-    number: '02',
-    title: 'TransitOps',
-    subtitle: 'Smart Transport Operations Platform',
-    category: 'Real-Time Telemetry • Fleet Analytics • Full-Stack',
-    description:
-      'A comprehensive smart transport platform engineered for real-time fleet tracking, delay prediction models, congestion telemetry, and dynamic route optimization.',
-    longDescription:
-      'Built to handle continuous GPS feeds with low-latency WebSocket communication. Integrates predictive machine learning models to forecast junction delays and provide intelligent dispatch recommendations.',
-    technologies: [
-      'React',
-      'TypeScript',
-      'Python',
-      'FastAPI',
-      'WebSockets',
-      'PostgreSQL',
-      'Tailwind CSS',
-      'Scikit-learn',
-    ],
-    features: [
-      'Sub-second live vehicle telemetry broadcasting via WebSockets',
-      'Historical delay prediction pipeline using regression ensembles',
-      'Dynamic multi-stop dispatch routing with live traffic simulation',
-    ],
-    metrics: [
-      { label: 'Telemetry Ping', value: '50ms' },
-      { label: 'Delay Accuracy', value: '91.2%' },
-      { label: 'Fleet Capacity', value: '500+ Units' },
-    ],
-    liveUrl: '',
-    githubUrl: 'https://github.com/Yash19k/transitops',
-    featured: true,
-    visualType: 'telemetry',
-  },
-];
 
 export const techStackData: TechItem[] = [
   // Languages

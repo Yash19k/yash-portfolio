@@ -1,20 +1,3 @@
-export interface ProjectItem {
-  id: string;
-  number: string;
-  title: string;
-  subtitle: string;
-  category: string;
-  description: string;
-  longDescription?: string;
-  technologies: string[];
-  features?: string[];
-  metrics?: { label: string; value: string }[];
-  liveUrl?: string;
-  githubUrl?: string;
-  featured?: boolean;
-  visualType: 'map' | 'telemetry' | 'vision' | 'pipeline';
-}
-
 export interface TechItem {
   name: string;
   category: 'languages' | 'aiml' | 'web' | 'datagis' | 'tools';
@@ -41,10 +24,4 @@ export interface SiteConfig {
   };
   githubUsername: string;
   resumeUrl: string;
-  coordinates: {
-    lat: string;
-    lon: string;
-    status: string;
-    focus: string;
-  };
 }
